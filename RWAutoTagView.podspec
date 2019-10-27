@@ -11,9 +11,9 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "8.0"
   spec.source       = { :git => "https://github.com/Rover001/RWCustomUIKit.git", :tag => "#{spec.version}" }
   spec.requires_arc = true
-  s.source_files = 'RWAutoTagView/*{h,m}'
-  s.public_header_files = 'RWAutoTagView/*.h'
-  s.frameworks = 'UIKit'
-  s.social_media_url = 'https://blog.csdn.net/RoverWord'
+  spec.source_files = 'RWAutoTagView/*{h,m}'
+  spec.public_header_files = 'RWAutoTagView/*.h'
+  spec.frameworks = 'UIKit'
+  spec.social_media_url = 'https://blog.csdn.net/RoverWord'
     
 end
