@@ -362,6 +362,7 @@
     CGFloat top = self.insets.top;
     CGFloat left = self.insets.left;
     CGFloat right = self.insets.right;
+    CGFloat bottom = self.insets.bottom;
     
     CGFloat lineSpacing = self.lineSpacing;
     CGFloat lineitemSpacing = self.lineitemSpacing;
@@ -369,57 +370,100 @@
     CGFloat current_X = left;
     CGFloat current_Y = top;
     
+    
+    NSInteger index = 0;
+    
     switch (self.lineStyle) {
         case RWAutoTagViewLineStyle_SingleLine:
         {
+            CGFloat width = 0.0f;
+            CGFloat height = 0.0f;
             for (UIView *view in subviews) {
-                CGSize size = view.intrinsicContentSize;
-                view.frame = CGRectMake(current_X, current_Y, size.width, size.height);
-                current_X += size.width;
-                current_X += lineitemSpacing;
-                currentView = view;
+                if ([view isKindOfClass:[RWAutoTagButton class]]) {
+                    RWAutoTagButton *autoTagButton = (RWAutoTagButton *)view;
+                    CGSize size = autoTagButton.intrinsicContentSize;
+                    width = size.width;
+                    height = size.height;
+                    if ((size.width >= self.safeAreaLayoutMaxWidth) ||
+                        (width + left +right) >= self.safeAreaLayoutMaxWidth) {
+                        width = self.safeAreaLayoutMaxWidth - left -right;
+                    }
+                    autoTagButton.frame = CGRectMake(current_X, current_Y, width, height);
+                    current_Y += height;
+                    index ++;
+                    if (index < subviews.count) {
+                        current_Y += lineitemSpacing;
+                    }
+                }
             }
         }
             break;
        
         case RWAutoTagViewLineStyle_AutoLine:
         {
-            NSInteger index = 0;
+//            NSInteger index = 0;
+            CGFloat lineMaxHeight = 0.0f;
             for (UIView *view in subviews) {
-                CGSize size = view.intrinsicContentSize;
-                if (currentView) {
+                
+                if ([view isKindOfClass:[RWAutoTagButton class]]) {
+                    RWAutoTagButton *autoTagButton = (RWAutoTagButton *)view;
+                    CGSize size = autoTagButton.intrinsicContentSize;
+//                    lineMaxHeight = MAX(size.height, lineMaxHeight);
                     CGFloat width = size.width;
-                    current_X += lineitemSpacing;
-                    if (current_X + width + right <= self.safeAreaLayoutMaxWidth) {
-                        view.frame = CGRectMake(current_X, CGRectGetMinY(currentView.frame), size.width, size.height);
-                        current_X += size.width;
+                    CGFloat height = size.height;
+                    CGFloat lineitemMaxWidth = current_X +width +right;
+                    if ((width >= self.safeAreaLayoutMaxWidth) ||
+                        (lineitemMaxWidth >= self.safeAreaLayoutMaxWidth) ||
+                        ((lineitemMaxWidth + lineitemSpacing) >= self.safeAreaLayoutMaxWidth)) {
+                        current_X = left;
+                        current_Y += (lineSpacing +lineMaxHeight);
+                        width  = MIN(width, self.safeAreaLayoutMaxWidth - left - right);
+                        autoTagButton.frame = CGRectMake(current_X, current_Y, width, height);
+                        lineMaxHeight = height;
+                        current_X += (lineitemSpacing + width);
+                        
                     } else {
-                        current_Y += lineSpacing;
-                        CGFloat width = MIN(size.width, self.safeAreaLayoutMaxWidth - left - right);
-                        CGRect rect = CGRectMake(left, current_Y, width, size.height);
-                        view.frame = CGRectMake(left, current_Y,0, size.height);
-                        [UIView animateWithDuration:1 animations:^{
-                          view.frame = rect;
-                        }];
-                        current_X = left + width;
-                        current_Y += rect.size.height;
+                        lineMaxHeight = MAX(height, lineMaxHeight);
+                        autoTagButton.frame = CGRectMake(current_X, current_Y, width, height);
+                        current_X += (lineitemSpacing + width);
                     }
-                } else {
-                    CGFloat width = MIN(size.width, self.safeAreaLayoutMaxWidth - left - right);
-                    CGRect rect = CGRectMake(left, current_Y, width, size.height);
-                    view.frame = CGRectMake(left, current_Y,width, size.height);
-//                    view.alpha = 0;
-//                    view.height = size.height;
-//                   [UIView animateWithDuration:0 animations:^{
-//                       view.width = width;
-//                       view.alpha = 1;
-//                   }];
-                    
-                    current_X += width;
-                    current_Y += rect.size.height;
+                    index ++;
                 }
-                currentView = view;
-                index ++;
+                
+//                CGSize size = view.intrinsicContentSize;
+//                if (currentView) {
+//                    CGFloat width = size.width;
+//                    current_X += lineitemSpacing;
+//                    if (current_X + width + right <= self.safeAreaLayoutMaxWidth) {
+//                        view.frame = CGRectMake(current_X, CGRectGetMinY(currentView.frame), size.width, size.height);
+//                        current_X += size.width;
+//                    } else {
+//                        current_Y += lineSpacing;
+//                        CGFloat width = MIN(size.width, self.safeAreaLayoutMaxWidth - left - right);
+//                        CGRect rect = CGRectMake(left, current_Y, width, size.height);
+//                        view.frame = CGRectMake(left, current_Y,0, size.height);
+//                        [UIView animateWithDuration:1 animations:^{
+//                          view.frame = rect;
+//                        }];
+//                        current_X = left + width;
+//                        current_Y += rect.size.height;
+//                    }
+//                } else {
+//                    CGFloat width = MIN(size.width, self.safeAreaLayoutMaxWidth - left - right);
+//                    CGRect rect = CGRectMake(left, current_Y, width, size.height);
+//                    view.frame = CGRectMake(left, current_Y,width, size.height);
+////                    view.alpha = 0;
+////                    view.height = size.height;
+////                   [UIView animateWithDuration:0 animations:^{
+////                       view.width = width;
+////                       view.alpha = 1;
+////                   }];
+//
+//                    current_X += width;
+//                    current_Y += rect.size.height;
+//                }
+//                currentView = view;
+//                index ++;
             }
         }
             break;

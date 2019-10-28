@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /* 🐱 排列样式  */
 typedef NS_ENUM(NSInteger,RWAutoTagViewLineStyle) {
-    RWAutoTagViewLineStyle_SingleLine = 0,     /** 单行显示 */
-    RWAutoTagViewLineStyle_AutoLine           /**< 默认 动态显示多行 */
+    RWAutoTagViewLineStyle_SingleLine = 0,     /** 单个一行显示 */
+    RWAutoTagViewLineStyle_AutoLine           /**< 默认 动态显示 */
     
 };
 

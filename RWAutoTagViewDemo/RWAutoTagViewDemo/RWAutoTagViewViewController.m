@@ -41,12 +41,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
      NSLog(@"%f %f",self.view.frame.size.width,[UIScreen mainScreen].bounds.size.width);
     self.navigationItem.title = @"RWAutoTagView介绍以及效果";
     self.isXibLoadAutoTagView = NO;
     if (!self.isXibLoadAutoTagView) {
         self.xib_AutoTagView.insets = UIEdgeInsetsMake(10, 10, 10, 10);
-        self.xib_AutoTagView.safeAreaLayoutMaxWidth = self.view.frame.size.width;
+//        self.xib_AutoTagView.safeAreaLayoutMaxWidth = self.view.frame.size.width;
+//        self.xib_AutoTagView.lineStyle = RWAutoTagViewLineStyle_SingleLine;
 //        self.xib_AutoTagView.dataSource = self;
         self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
         
