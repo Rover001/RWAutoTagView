@@ -29,6 +29,7 @@
     if (self) {
         NSLog(@"initWithFrame");
         [self initAttribute];
+//        [self reloadData];
     }
     return self;
 }
@@ -37,6 +38,7 @@
     self = [super init];
     if (self) {
         self.autoSortStyle = autoSortStyle;
+//        [self reloadData];
     }
     return self;
 }
@@ -46,9 +48,8 @@
 }
 
 
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
-    self = [super initWithCoder:coder];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     if (self) {
         NSLog(@"initWithCoder");
         [self initAttribute];
@@ -69,10 +70,15 @@
     self.buttons = [NSMutableArray array];
     self.isAnimation = NO;
     self.animationIndex = -1;
-    
-    [self addAutoTagButton];
+    if (_dataSource) {
+        [self reloadData];
+    }
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+//    [self reloadData];
+}
 
 #pragma mark - 按钮处理事件
 - (void)autoTagButtonClick:(RWAutoTagButton *)autoTagButton {
@@ -99,17 +105,15 @@
         if (self.dataSource && [self.dataSource respondsToSelector:@selector(autoTagView:autoTagButtonForAtIndex:)]) {
             RWAutoTagButton *autoTagButton = [self.dataSource autoTagView:self autoTagButtonForAtIndex:i];
             autoTagButton.tag = i+1000;
+            if (self.dataSource && [self.dataSource respondsToSelector:@selector(safeAreaLayoutMaxWidthInAutoTagView:)]) {
+                autoTagButton.safeAreaLayoutMaxWidth = [self.dataSource safeAreaLayoutMaxWidthInAutoTagView:self];
+            }
             [autoTagButton addTarget:self action:@selector(autoTagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 //            autoTagButton.backgroundColor = [UIColor grayColor];
             [self addSubview:autoTagButton];
             [_buttons addObject:autoTagButton];
         }
     }
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-   
 }
 
 - (void)setCurrentCount:(NSInteger)currentCount {
@@ -120,9 +124,20 @@
 }
 
 - (void)setDataSource:(id<RWAutoTagViewDataSource>)dataSource {
-    _dataSource = dataSource;
-    if (_dataSource) {
-        [self reloadData];
+    if (_dataSource != dataSource) {
+        _dataSource = dataSource;
+        if (_dataSource) {
+            [self reloadData];
+        }
+    }
+}
+
+- (void)setDelegate:(id<RWAutoTagViewDelegate>)delegate {
+    if (_delegate !=delegate) {
+        _delegate = delegate;
+        if (_dataSource && _delegate) {
+            [self setNeedsLayout];
+        }
     }
 }
 
@@ -159,13 +174,13 @@
         
         NSInteger number = [self getAutoTagButtonNumbers];
         if (index >= number) {
-           NSString *errMsg = [NSString stringWithFormat:@"%@  index:%ld  数组 bounds [0 .. %ld]",[NSString stringWithFormat:@"%s",__func__],index,number -1];
+            NSString *errMsg = [NSString stringWithFormat:@"%@  index:%ld  数组 bounds [0 .. %d]",[NSString stringWithFormat:@"%s",__func__],(long)index,number -1];
             NSAssert(index < number,errMsg);
         }
         
         
         if (number >= self.currentCount) {
-            NSString *errMsg = [NSString stringWithFormat:@"%@  delegate Number:%ld  数组 bounds [0 .. %ld]",[NSString stringWithFormat:@"%s",__func__],number,self.currentCount -1];
+            NSString *errMsg = [NSString stringWithFormat:@"%@  delegate Number:%ld  数组 bounds [0 .. %d]",[NSString stringWithFormat:@"%s",__func__],(long)number,self.currentCount -1];
             NSAssert(number < self.currentCount,errMsg);
         }
         self.currentCount  ++;
@@ -219,6 +234,7 @@
 
 
 - (CGSize)intrinsicContentSize {
+    [super intrinsicContentSize];
     if (!self.buttons.count) {
         return CGSizeZero;
     }
@@ -268,7 +284,9 @@
                            current_X += size.width;
                        } else {
                            lineCount ++;
-                           current_X = left + size.width;
+                           intrinsicHeight += lineSpacing;
+                            CGFloat width = MIN(size.width, self.safeAreaLayoutMaxWidth - left - right);
+                           current_X = left + width;
                            intrinsicHeight += size.height +lineSpacing;
                       }
                    } else {
@@ -299,14 +317,16 @@
 - (void)setLineStyle:(RWAutoTagViewLineStyle)lineStyle {
     if (_lineStyle !=lineStyle) {
         _lineStyle = lineStyle;
-        [self invalidateIntrinsicContentSize];
+//        [self invalidateIntrinsicContentSize];
+        [self setNeedsLayout];
     }
 }
 
 - (void)setSafeAreaLayoutMaxWidth:(CGFloat)safeAreaLayoutMaxWidth {
     if (_safeAreaLayoutMaxWidth != safeAreaLayoutMaxWidth) {
         _safeAreaLayoutMaxWidth = safeAreaLayoutMaxWidth;
-        [self invalidateIntrinsicContentSize];
+//        [self invalidateIntrinsicContentSize];
+        [self setNeedsLayout];
     }
 }
 
@@ -316,7 +336,13 @@
     if (_autoSortStyle != autoSortStyle) {
         _autoSortStyle = autoSortStyle;
         if (self.isItemSort) {
-            [self invalidateIntrinsicContentSize];
+//            [self invalidateIntrinsicContentSize];
+            if (_autoSortStyle == RWAutoTagViewAutoSortStyleNormal) {
+                [self reloadData];
+            } else {
+//               [self setNeedsLayout];
+                [self reloadData];
+            }
         }
     }
 }
@@ -371,10 +397,10 @@
                         current_Y += lineSpacing;
                         CGFloat width = MIN(size.width, self.safeAreaLayoutMaxWidth - left - right);
                         CGRect rect = CGRectMake(left, current_Y, width, size.height);
-                        view.frame = CGRectMake(left, current_Y,width, size.height);
-//                        [UIView animateWithDuration:1 animations:^{
-//                          view.frame = rect;
-//                        }];
+                        view.frame = CGRectMake(left, current_Y,0, size.height);
+                        [UIView animateWithDuration:1 animations:^{
+                          view.frame = rect;
+                        }];
                         current_X = left + width;
                         current_Y += rect.size.height;
                     }
@@ -403,6 +429,7 @@
     }
     
     self.rw_size = [self intrinsicContentSize];
+    NSLog(@"rw_size:%@",NSStringFromCGSize(self.rw_size));
 }
 
 

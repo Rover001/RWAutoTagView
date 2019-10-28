@@ -184,7 +184,8 @@
         if (self.autoTagButtonStyle == RWAutoTagButtonStyle_Image ||
             self.autoTagButtonStyle == RWAutoTagButtonStyle_Mingle) {
             [self initAutoButtonSubViews];
-            [self invalidateIntrinsicContentSize];
+//            [self invalidateIntrinsicContentSize];
+            [self setNeedsLayout];
         }
     }
 }
@@ -193,7 +194,17 @@
     if (_autoTagButtonStyle != autoTagButtonStyle) {
         _autoTagButtonStyle = autoTagButtonStyle;
         [self initAutoButtonSubViews];
-        [self invalidateIntrinsicContentSize];
+//        [self invalidateIntrinsicContentSize];
+        [self setNeedsLayout];
+    }
+}
+
+- (void)setSafeAreaLayoutMaxWidth:(CGFloat)safeAreaLayoutMaxWidth {
+    if (_safeAreaLayoutMaxWidth != safeAreaLayoutMaxWidth) {
+        _safeAreaLayoutMaxWidth = safeAreaLayoutMaxWidth;
+//        [self invalidateIntrinsicContentSize];
+        self.autoTag.safeAreaLayoutMaxWidth = safeAreaLayoutMaxWidth;
+        [self setNeedsLayout];
     }
 }
 
@@ -439,7 +450,7 @@
     
     switch (self.autoTagButtonStyle) {
         case RWAutoTagButtonStyle_Text:
-         newSize = [self reloadAutoButtonStyle_Text];
+            newSize = [self reloadAutoButtonStyle_Text];
             break;
         
         case RWAutoTagButtonStyle_Image:

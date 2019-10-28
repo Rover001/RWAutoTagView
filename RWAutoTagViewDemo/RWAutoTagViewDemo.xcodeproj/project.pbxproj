@@ -20,6 +20,15 @@
 		449F71962365894C0077BE63 /* RWAutoTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F71952365894C0077BE63 /* RWAutoTagButton.m */; };
 		449F719923658D020077BE63 /* NSBundle+RWAutoTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F719823658D020077BE63 /* NSBundle+RWAutoTag.m */; };
 		449F719C23658D170077BE63 /* UIView+RWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F719A23658D170077BE63 /* UIView+RWExtension.m */; };
+		B68C2BE62366805200EEAA56 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BE52366805200EEAA56 /* MainViewController.m */; };
+		B68C2BE9236680E700EEAA56 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BE8236680E700EEAA56 /* MainTableViewCell.m */; };
+		B68C2BF1236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BEE236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m */; };
+		B68C2BF2236681F000EEAA56 /* UIBaseXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BF0236681F000EEAA56 /* UIBaseXibView.m */; };
+		B68C2BF82366826C00EEAA56 /* UITableViewCell+StoryBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BF42366826B00EEAA56 /* UITableViewCell+StoryBoard.m */; };
+		B68C2BF92366826C00EEAA56 /* UIView+Custom_Xib.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BF72366826C00EEAA56 /* UIView+Custom_Xib.m */; };
+		B68C2BFC236685B200EEAA56 /* MainSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BFB236685B200EEAA56 /* MainSectionView.m */; };
+		B68C2BFE236685C000EEAA56 /* MainSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68C2BFD236685C000EEAA56 /* MainSectionView.xib */; };
+		B68C2C0123668A9700EEAA56 /* RWAutoTagViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2C0023668A9700EEAA56 /* RWAutoTagViewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +56,24 @@
 		449F719823658D020077BE63 /* NSBundle+RWAutoTag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+RWAutoTag.m"; sourceTree = "<group>"; };
 		449F719A23658D170077BE63 /* UIView+RWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RWExtension.m"; sourceTree = "<group>"; };
 		449F719B23658D170077BE63 /* UIView+RWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RWExtension.h"; sourceTree = "<group>"; };
+		B68C2BE42366805200EEAA56 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B68C2BE52366805200EEAA56 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B68C2BE7236680E700EEAA56 /* MainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
+		B68C2BE8236680E700EEAA56 /* MainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
+		B68C2BEC236681B600EEAA56 /* RWAutoTagView.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagView.pch; sourceTree = "<group>"; };
+		B68C2BED236681F000EEAA56 /* UIBaseXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBaseXibView.h; sourceTree = "<group>"; };
+		B68C2BEE236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBaseStoryBoardTableViewCell.m; sourceTree = "<group>"; };
+		B68C2BEF236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBaseStoryBoardTableViewCell.h; sourceTree = "<group>"; };
+		B68C2BF0236681F000EEAA56 /* UIBaseXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBaseXibView.m; sourceTree = "<group>"; };
+		B68C2BF42366826B00EEAA56 /* UITableViewCell+StoryBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+StoryBoard.m"; sourceTree = "<group>"; };
+		B68C2BF52366826B00EEAA56 /* UITableViewCell+StoryBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+StoryBoard.h"; sourceTree = "<group>"; };
+		B68C2BF62366826B00EEAA56 /* UIView+Custom_Xib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Custom_Xib.h"; sourceTree = "<group>"; };
+		B68C2BF72366826C00EEAA56 /* UIView+Custom_Xib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Custom_Xib.m"; sourceTree = "<group>"; };
+		B68C2BFA236685B200EEAA56 /* MainSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainSectionView.h; sourceTree = "<group>"; };
+		B68C2BFB236685B200EEAA56 /* MainSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainSectionView.m; sourceTree = "<group>"; };
+		B68C2BFD236685C000EEAA56 /* MainSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainSectionView.xib; sourceTree = "<group>"; };
+		B68C2BFF23668A9700EEAA56 /* RWAutoTagViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagViewViewController.h; sourceTree = "<group>"; };
+		B68C2C0023668A9700EEAA56 /* RWAutoTagViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAutoTagViewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +113,19 @@
 				449F7175236587420077BE63 /* SceneDelegate.m */,
 				449F7177236587430077BE63 /* ViewController.h */,
 				449F7178236587430077BE63 /* ViewController.m */,
+				B68C2BE42366805200EEAA56 /* MainViewController.h */,
+				B68C2BE52366805200EEAA56 /* MainViewController.m */,
+				B68C2BFF23668A9700EEAA56 /* RWAutoTagViewViewController.h */,
+				B68C2C0023668A9700EEAA56 /* RWAutoTagViewViewController.m */,
+				B68C2BF32366822200EEAA56 /* Basic */,
+				B68C2BEA2366811600EEAA56 /* Model */,
+				B68C2BEB2366811600EEAA56 /* View */,
+				B68C2BE32366802E00EEAA56 /* Cell */,
 				449F717A236587430077BE63 /* Main.storyboard */,
 				449F717D236587440077BE63 /* Assets.xcassets */,
 				449F717F236587440077BE63 /* LaunchScreen.storyboard */,
 				449F7182236587440077BE63 /* Info.plist */,
+				B68C2BEC236681B600EEAA56 /* RWAutoTagView.pch */,
 				449F7183236587440077BE63 /* main.m */,
 			);
 			path = RWAutoTagViewDemo;
@@ -112,6 +148,47 @@
 				449F719A23658D170077BE63 /* UIView+RWExtension.m */,
 			);
 			path = RWAutoTagView;
+			sourceTree = "<group>";
+		};
+		B68C2BE32366802E00EEAA56 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B68C2BE7236680E700EEAA56 /* MainTableViewCell.h */,
+				B68C2BE8236680E700EEAA56 /* MainTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B68C2BEA2366811600EEAA56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B68C2BEB2366811600EEAA56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B68C2BFA236685B200EEAA56 /* MainSectionView.h */,
+				B68C2BFB236685B200EEAA56 /* MainSectionView.m */,
+				B68C2BFD236685C000EEAA56 /* MainSectionView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B68C2BF32366822200EEAA56 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				B68C2BF52366826B00EEAA56 /* UITableViewCell+StoryBoard.h */,
+				B68C2BF42366826B00EEAA56 /* UITableViewCell+StoryBoard.m */,
+				B68C2BF62366826B00EEAA56 /* UIView+Custom_Xib.h */,
+				B68C2BF72366826C00EEAA56 /* UIView+Custom_Xib.m */,
+				B68C2BEF236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.h */,
+				B68C2BEE236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m */,
+				B68C2BED236681F000EEAA56 /* UIBaseXibView.h */,
+				B68C2BF0236681F000EEAA56 /* UIBaseXibView.m */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +251,7 @@
 				449F7181236587440077BE63 /* LaunchScreen.storyboard in Resources */,
 				449F717E236587440077BE63 /* Assets.xcassets in Resources */,
 				449F718C236587C50077BE63 /* RWAutoTag.bundle in Resources */,
+				B68C2BFE236685C000EEAA56 /* MainSectionView.xib in Resources */,
 				449F717C236587430077BE63 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,15 +263,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68C2C0123668A9700EEAA56 /* RWAutoTagViewViewController.m in Sources */,
 				449F71962365894C0077BE63 /* RWAutoTagButton.m in Sources */,
+				B68C2BFC236685B200EEAA56 /* MainSectionView.m in Sources */,
+				B68C2BE9236680E700EEAA56 /* MainTableViewCell.m in Sources */,
 				449F719C23658D170077BE63 /* UIView+RWExtension.m in Sources */,
 				449F71902365883C0077BE63 /* RWAutoTagView.m in Sources */,
+				B68C2BE62366805200EEAA56 /* MainViewController.m in Sources */,
 				449F7179236587430077BE63 /* ViewController.m in Sources */,
 				449F719923658D020077BE63 /* NSBundle+RWAutoTag.m in Sources */,
+				B68C2BF2236681F000EEAA56 /* UIBaseXibView.m in Sources */,
+				B68C2BF92366826C00EEAA56 /* UIView+Custom_Xib.m in Sources */,
 				449F7173236587420077BE63 /* AppDelegate.m in Sources */,
 				449F7184236587440077BE63 /* main.m in Sources */,
+				B68C2BF82366826C00EEAA56 /* UITableViewCell+StoryBoard.m in Sources */,
 				449F7193236588A40077BE63 /* RWAutoTag.m in Sources */,
 				449F7176236587420077BE63 /* SceneDelegate.m in Sources */,
+				B68C2BF1236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -321,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -334,12 +420,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = E76WMGHM83;
+				CURRENT_PROJECT_VERSION = 1.0.0.0;
+				DEVELOPMENT_TEAM = H93SRZNRLQ;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/sunlinmao/RWCustomUIKit/RWAutoTagViewDemo/RWAutoTagViewDemo/RWAutoTagView.pch;
 				INFOPLIST_FILE = RWAutoTagViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AFY.RWAutoTagViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -351,12 +442,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.0;
 				DEVELOPMENT_TEAM = E76WMGHM83;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RWAutoTagView.pch";
 				INFOPLIST_FILE = RWAutoTagViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AFY.RWAutoTagViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
