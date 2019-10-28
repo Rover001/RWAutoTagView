@@ -3,7 +3,7 @@ Pod::Spec.new do |spec|
   spec.name         = "RWAutoTagView"
   spec.version      = "0.1.0"
   spec.summary      = "自定义管理标签管理"
-  spec.homepage     = "https://cocoapods.org/pods/CustomEngine"
+  spec.homepage     = "https://cocoapods.org/pods/RWAutoTagView"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "Rover001" => "zengyun6666@163.com" }
   spec.platform     = :ios
