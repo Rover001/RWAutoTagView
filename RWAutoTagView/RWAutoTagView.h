@@ -16,8 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /* 🐱 排列样式  */
 typedef NS_ENUM(NSInteger,RWAutoTagViewLineStyle) {
-    RWAutoTagViewLineStyle_SingleLine = 0,     /** 单行显示 */
-    RWAutoTagViewLineStyle_AutoLine           /**< 默认 动态显示多行 */
+    RWAutoTagViewLineStyle_SingleLine = 0,     /** 单个一行显示 */
+    RWAutoTagViewLineStyle_AutoLine           /**< 默认 动态显示 */
+    
 };
 
 /* 🐱 排序样式 根据宽度来判断  */
@@ -26,6 +27,14 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewAutoSortStyle) {
     RWAutoTagViewAutoSortStyleNormal = 0,
     RWAutoTagViewAutoSortStyleDescending, /** 升序  宽度最长在上面 */
     RWAutoTagViewAutoSortStyleAscending  /** 降序 宽度最短在上面 */
+};
+
+
+/* 🐱 当前宽宽显示的样式   */
+typedef NS_ENUM(NSInteger,RWAutoTagViewFullSafeAreaStyle) {
+    /**< 默认 根据safeAreaLayoutMaxWidth值为宽度  */
+    RWAutoTagViewFullSafeAreaStyle_MaxWidth = 0,
+    RWAutoTagViewFullSafeAreaStyle_AutoWidth, /** 自动根据控件布局来计算宽度 */
 };
 
 
@@ -42,8 +51,8 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
 @interface RWAutoTagView : UIView
 
 
-@property (nonatomic,weak) IBOutlet __nullable id <RWAutoTagViewDataSource>dataSource;
-@property (nonatomic,weak) IBOutlet __nullable id <RWAutoTagViewDelegate>delegate;
+@property (nonatomic,weak,nullable) IBOutlet id <RWAutoTagViewDataSource>dataSource;
+@property (nonatomic,weak,nullable) IBOutlet id <RWAutoTagViewDelegate>delegate;
 
 
 /* 内边距 默认 UIEdgeInsetsMake(0,0,0,0) */
@@ -58,6 +67,11 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
 /* 最大显示宽度
  默认 safeAreaLayoutMaxWidth = [UIScreen mainScreen].bounds.size.width   */
 @property (nonatomic,assign) CGFloat safeAreaLayoutMaxWidth;
+
+/* 🐱 当前宽宽显示的样式
+默认 fullSafeAreaStyle = RWAutoTagViewFullSafeAreaStyle_MaxWidth
+*/
+@property (nonatomic,assign) RWAutoTagViewFullSafeAreaStyle  fullSafeAreaStyle;
 
 /* 单行时候是否显示行间距  默认 showSingleLineSpacing = NO */
 @property (nonatomic,assign) BOOL showSingleLineSpacing;
@@ -89,8 +103,9 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
 
 + (instancetype)autoTagViewWithAutoSortStyle:(RWAutoTagViewAutoSortStyle)autoSortStyle;
 
-- (void)insertAutoTagButtonAtIndex:(NSInteger)index;/* 🐱 添加一个RWAutoTagButton */
-- (void)removeAutoTagButtonAtIndex:(NSInteger)index;/* 🐱 删除一个RWAutoTagButton */
+
+- (void)insertAutoTagButtonAtIndex:(NSInteger)index autoTagButtonAtAnimation:(BOOL)animation;/* 🐱 添加一个RWAutoTagButton */
+- (void)removeAutoTagButtonAtIndex:(NSInteger)index autoTagButtonAtAnimation:(BOOL)animation;/* 🐱 删除一个RWAutoTagButton */
 - (nullable __kindof RWAutoTagButton *)autoTagButtonAtIndex:(NSInteger)index;/* 🐱 返回一个RWAutoTagButton对象 */
 
 - (void)reloadData;/* 🐱 刷新数据 */
@@ -110,8 +125,10 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
 - (RWAutoTagButton *)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonForAtIndex:(NSInteger)index;
 
 
-@optional
 
+
+@optional
+- (CGFloat)safeAreaLayoutMaxWidthInAutoTagView:(RWAutoTagView *)autoTagView;
 - (RWAutoTag *)autoTagView:(RWAutoTagView *)autoTagView ;
 
 
@@ -124,7 +141,9 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
 
 @optional
 
+- (void)autoTagView:(RWAutoTagView *)autoTagView autoLayoutAutoTagButtonAtIndex:(NSInteger )index;
 - (void)autoTagView:(RWAutoTagView *)autoTagView didSelectAutoTagButtonAtIndex:(NSInteger )index;
+
 
 @end
 
