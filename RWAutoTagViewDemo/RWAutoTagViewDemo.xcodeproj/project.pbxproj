@@ -20,6 +20,9 @@
 		449F71962365894C0077BE63 /* RWAutoTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F71952365894C0077BE63 /* RWAutoTagButton.m */; };
 		449F719923658D020077BE63 /* NSBundle+RWAutoTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F719823658D020077BE63 /* NSBundle+RWAutoTag.m */; };
 		449F719C23658D170077BE63 /* UIView+RWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F719A23658D170077BE63 /* UIView+RWExtension.m */; };
+		B66A091623681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A091523681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m */; };
+		B66A091923681F8E0035BFD8 /* RWAutoTagButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A091823681F8E0035BFD8 /* RWAutoTagButtonViewController.m */; };
+		B66A091C23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A091B23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m */; };
 		B68C2BE62366805200EEAA56 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BE52366805200EEAA56 /* MainViewController.m */; };
 		B68C2BE9236680E700EEAA56 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BE8236680E700EEAA56 /* MainTableViewCell.m */; };
 		B68C2BF1236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BEE236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m */; };
@@ -56,6 +59,12 @@
 		449F719823658D020077BE63 /* NSBundle+RWAutoTag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+RWAutoTag.m"; sourceTree = "<group>"; };
 		449F719A23658D170077BE63 /* UIView+RWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RWExtension.m"; sourceTree = "<group>"; };
 		449F719B23658D170077BE63 /* UIView+RWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RWExtension.h"; sourceTree = "<group>"; };
+		B66A091423681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagViewPureCodeViewController.h; sourceTree = "<group>"; };
+		B66A091523681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAutoTagViewPureCodeViewController.m; sourceTree = "<group>"; };
+		B66A091723681F8E0035BFD8 /* RWAutoTagButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagButtonViewController.h; sourceTree = "<group>"; };
+		B66A091823681F8E0035BFD8 /* RWAutoTagButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAutoTagButtonViewController.m; sourceTree = "<group>"; };
+		B66A091A23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagButtonPureCodeViewController.h; sourceTree = "<group>"; };
+		B66A091B23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAutoTagButtonPureCodeViewController.m; sourceTree = "<group>"; };
 		B68C2BE42366805200EEAA56 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B68C2BE52366805200EEAA56 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B68C2BE7236680E700EEAA56 /* MainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
@@ -117,6 +126,12 @@
 				B68C2BE52366805200EEAA56 /* MainViewController.m */,
 				B68C2BFF23668A9700EEAA56 /* RWAutoTagViewViewController.h */,
 				B68C2C0023668A9700EEAA56 /* RWAutoTagViewViewController.m */,
+				B66A091423681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.h */,
+				B66A091523681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m */,
+				B66A091723681F8E0035BFD8 /* RWAutoTagButtonViewController.h */,
+				B66A091823681F8E0035BFD8 /* RWAutoTagButtonViewController.m */,
+				B66A091A23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.h */,
+				B66A091B23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m */,
 				B68C2BF32366822200EEAA56 /* Basic */,
 				B68C2BEA2366811600EEAA56 /* Model */,
 				B68C2BEB2366811600EEAA56 /* View */,
@@ -266,6 +281,7 @@
 				B68C2C0123668A9700EEAA56 /* RWAutoTagViewViewController.m in Sources */,
 				449F71962365894C0077BE63 /* RWAutoTagButton.m in Sources */,
 				B68C2BFC236685B200EEAA56 /* MainSectionView.m in Sources */,
+				B66A091923681F8E0035BFD8 /* RWAutoTagButtonViewController.m in Sources */,
 				B68C2BE9236680E700EEAA56 /* MainTableViewCell.m in Sources */,
 				449F719C23658D170077BE63 /* UIView+RWExtension.m in Sources */,
 				449F71902365883C0077BE63 /* RWAutoTagView.m in Sources */,
@@ -276,10 +292,12 @@
 				B68C2BF92366826C00EEAA56 /* UIView+Custom_Xib.m in Sources */,
 				449F7173236587420077BE63 /* AppDelegate.m in Sources */,
 				449F7184236587440077BE63 /* main.m in Sources */,
+				B66A091C23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m in Sources */,
 				B68C2BF82366826C00EEAA56 /* UITableViewCell+StoryBoard.m in Sources */,
 				449F7193236588A40077BE63 /* RWAutoTag.m in Sources */,
 				449F7176236587420077BE63 /* SceneDelegate.m in Sources */,
 				B68C2BF1236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m in Sources */,
+				B66A091623681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,9 +437,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.0.0;
-				DEVELOPMENT_TEAM = E76WMGHM83;
+				DEVELOPMENT_TEAM = H93SRZNRLQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RWAutoTagViewDemo/RWAutoTagView.pch";
 				INFOPLIST_FILE = RWAutoTagViewDemo/Info.plist;
@@ -433,6 +452,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AFY.RWAutoTagViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -441,9 +461,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.0.0;
-				DEVELOPMENT_TEAM = E76WMGHM83;
+				DEVELOPMENT_TEAM = H93SRZNRLQ;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RWAutoTagViewDemo/RWAutoTagView.pch";
 				INFOPLIST_FILE = RWAutoTagViewDemo/Info.plist;
@@ -455,6 +476,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AFY.RWAutoTagViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

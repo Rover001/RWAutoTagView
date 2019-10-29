@@ -32,11 +32,11 @@
     NSInteger count = 0;
     switch (section) {
         case 0:
-            count = 4;
+            count = 2;
             break;
             
         case 1:
-            count = 4;
+            count = 2;
             break;
             
         case 2:
@@ -60,16 +60,8 @@
                     title = @"使用代码创建";
                     break;
                     
-                case 2:
-                    title = @"使用Xib创建";
-                    break;
-                    
-                case 3:
-                    title = @"使用Storyboard中Xib创建";
-                    break;
-                    
                 default:
-                    title = @"RWAutoTagView介绍";
+                    title = @"Storyboard、Xib创建";
                     break;
             }
             break;
@@ -80,16 +72,8 @@
                     title = @"使用代码创建";
                     break;
                     
-                case 2:
-                    title = @"使用Xib创建";
-                    break;
-                    
-                case 3:
-                    title = @"使用Storyboard中Xib创建";
-                    break;
-                    
                 default:
-                    title = @"RWAutoTagButton介绍";
+                    title = @"Storyboard、Xib创建";
                     break;
             }
             break;
@@ -150,14 +134,8 @@
         case 0:
             switch (indexPath.row) {
                 case 1:
+                    identifier = @"RWAutoTagViewPureCode";
                     break;
-                    
-                case 2:
-                    break;
-                    
-                case 3:
-                    break;
-                    
                 default:
                     identifier = @"RWAutoTagView";
                     break;
@@ -167,15 +145,10 @@
         case 1:
             switch (indexPath.row) {
                 case 1:
+                    identifier = @"RWAutoTagButtonPureCode";
                     break;
-                    
-                case 2:
-                    break;
-                    
-                case 3:
-                    break;
-                    
                 default:
+                    identifier = @"RWAutoTagButton";
                     break;
             }
             break;

@@ -8,7 +8,7 @@
 
 #import "RWAutoTagViewViewController.h"
 
-@interface RWAutoTagViewViewController ()<RWAutoTagViewDataSource>
+@interface RWAutoTagViewViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *autoTagView_BackView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *autoTagView_BackView_Height;
@@ -17,6 +17,8 @@
 
 
 @property (weak, nonatomic) IBOutlet RWAutoTagView *xib_AutoTagView;
+
+@property (nonatomic,assign) NSInteger  count;/* <#注释#> */
 
 @end
 
@@ -41,31 +43,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.count = 3;
      NSLog(@"%f %f",self.view.frame.size.width,[UIScreen mainScreen].bounds.size.width);
-    self.navigationItem.title = @"RWAutoTagView介绍以及效果";
-    self.isXibLoadAutoTagView = NO;
-    if (!self.isXibLoadAutoTagView) {
-        self.xib_AutoTagView.insets = UIEdgeInsetsMake(10, 10, 10, 10);
-//        self.xib_AutoTagView.safeAreaLayoutMaxWidth = self.view.frame.size.width;
-//        self.xib_AutoTagView.lineStyle = RWAutoTagViewLineStyle_SingleLine;
-//        self.xib_AutoTagView.dataSource = self;
-        self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
-        
-    } else {
+    self.navigationItem.title = @"xib、stortboard使用介绍以及效果";
+    self.xib_AutoTagView.insets = UIEdgeInsetsMake(10, 10, 10, 10);
+    self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
+//    if (self.isXibLoadAutoTagView) {
+//
+//
+//    } else {
 //        self.xib_AutoTagView.hidden = YES;
 //        RWAutoTagView *autoTagView = [RWAutoTagView autoTagViewWithAutoSortStyle:RWAutoTagViewAutoSortStyleNormal];
 //        autoTagView.dataSource = self;
 //        autoTagView.delegate = self;
 //        autoTagView.insets = UIEdgeInsetsMake(10, 10, 10, 10);
 //        autoTagView.backgroundColor = [UIColor cyanColor];
-    //    autoTagView.itemAutoSortStyle = CustomAutoTagViewItemAutoSortStyleAscending;
-//        autoTagView.rw_y  = 40.0f;
-    //    [autoTagView layoutSubviews];
+//        autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleAscending;
+////        autoTagView.rw_y  = 40.0f;
+//        [autoTagView layoutSubviews];
 //        [self.autoTagView_BackView addSubview:autoTagView];
-//        [autoTagView reloadData];
+////        [autoTagView reloadData];
 //        self.autoTagView_BackView_Height.constant = autoTagView.intrinsicContentSize.height;
-    }
+//    }
    
 }
 - (IBAction)autoSortNormal:(UIButton *)sender {
@@ -76,14 +75,30 @@
     NSLog(@"RWAutoTagViewAutoSortStyleNormal:%f  %@",self.xib_AutoTagView.intrinsicContentSize.height,NSStringFromCGSize(self.xib_AutoTagView.rw_size));
 }
 - (IBAction)autoSortDescending:(UIButton *)sender {
+    sender.selected = !sender.selected;
     self.xib_AutoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleDescending;
     self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
-    NSLog(@"RWAutoTagViewAutoSortStyleDescending:%f  %@",self.xib_AutoTagView.intrinsicContentSize.height,NSStringFromCGSize(self.xib_AutoTagView.rw_size));
+    
 }
 - (IBAction)autoSortAseending:(UIButton *)sender {
     self.xib_AutoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleAscending;
     self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
-NSLog(@"RWAutoTagViewAutoSortStyleAscending:%f  %@",self.xib_AutoTagView.intrinsicContentSize.height,NSStringFromCGSize(self.xib_AutoTagView.rw_size));
+}
+
+- (IBAction)lineStyleSingle:(UIButton *)sender {
+    self.xib_AutoTagView.lineStyle = RWAutoTagViewLineStyle_SingleLine;
+    self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
+}
+- (IBAction)lineStyleAutoLine:(UIButton *)sender {
+    self.xib_AutoTagView.lineStyle = RWAutoTagViewLineStyle_AutoLine;
+    self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
+}
+
+- (IBAction)fullSafeAreaStyleAuto:(UIButton *)sender {
+    self.xib_AutoTagView.fullSafeAreaStyle = RWAutoTagViewFullSafeAreaStyle_AutoWidth;
+}
+- (IBAction)fullSafeAreaStyle:(UIButton *)sender {
+    self.xib_AutoTagView.fullSafeAreaStyle = RWAutoTagViewFullSafeAreaStyle_MaxWidth;
 }
 
 
@@ -104,9 +119,6 @@ NSLog(@"RWAutoTagViewAutoSortStyleAscending:%f  %@",self.xib_AutoTagView.intrins
         text = @"只有文字";
     }
     RWAutoTag *autoTag = [RWAutoTag autoTagWithTagStyle:autoTagStyle];
-//    autoTag.safeAreaLayoutMaxWidth = [UIScreen mainScreen].bounds.size.width;
-//    autoTag.safeAreaLayoutMaxWidth = 300.0f;
-//    NSLog(@"%f %f",self.view.frame.size.width,[UIScreen mainScreen].bounds.size.width);
     if (autoTagStyle == RWAutoTagStyle_Mingle) {
         RWAutoTagImageEdgeInsetStyle imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Top;
         text = @"图文结合,图在上面";
@@ -126,15 +138,14 @@ NSLog(@"RWAutoTagViewAutoSortStyleAscending:%f  %@",self.xib_AutoTagView.intrins
     return [RWAutoTagButton autoTagButtonWithAutoTag:autoTag];
 }
 
-- (CGFloat)safeAreaLayoutMaxWidthInAutoTagView:(RWAutoTagView *)autoTagView {
-    
-    return [UIScreen mainScreen].bounds.size.width;
-}
-
-
 #pragma mark - RWAutoTagViewDelegate
 - (void)autoTagView:(RWAutoTagView *)autoTagView didSelectAutoTagButtonAtIndex:(NSInteger)index {
     NSLog(@"%ld",(long)index);
+}
+
+- (void)autoTagView:(RWAutoTagView *)autoTagView autoLayoutAutoTagButtonAtIndex:(NSInteger )index {
+    NSLog(@"%@",NSStringFromCGSize(autoTagView.rw_size));
+//    self.autoTagView_BackView_Height.constant = autoTagView.rw_size.height;
 }
 
 
