@@ -1,0 +1,6 @@
+framework module RWAutoTagView {
+  umbrella header "RWAutoTagView-umbrella.h"
+
+  export *
+  module * { export * }
+}

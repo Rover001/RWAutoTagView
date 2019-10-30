@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		449F7173236587420077BE63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F7172236587420077BE63 /* AppDelegate.m */; };
+		449F7176236587420077BE63 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F7175236587420077BE63 /* SceneDelegate.m */; };
+		449F7179236587430077BE63 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F7178236587430077BE63 /* ViewController.m */; };
+		449F717C236587430077BE63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449F717A236587430077BE63 /* Main.storyboard */; };
+		449F717E236587440077BE63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 449F717D236587440077BE63 /* Assets.xcassets */; };
+		449F7181236587440077BE63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449F717F236587440077BE63 /* LaunchScreen.storyboard */; };
+		449F7184236587440077BE63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 449F7183236587440077BE63 /* main.m */; };
+		7121CDA2FA0AD1EC6D5BCA5B /* Pods_RWAutoTagViewDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931E2C679566567B864FC448 /* Pods_RWAutoTagViewDemo.framework */; };
+		B66A091623681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A091523681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m */; };
+		B66A091923681F8E0035BFD8 /* RWAutoTagButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A091823681F8E0035BFD8 /* RWAutoTagButtonViewController.m */; };
+		B66A091C23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B66A091B23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m */; };
+		B68C2BE62366805200EEAA56 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BE52366805200EEAA56 /* MainViewController.m */; };
+		B68C2BE9236680E700EEAA56 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BE8236680E700EEAA56 /* MainTableViewCell.m */; };
+		B68C2BF1236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BEE236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m */; };
+		B68C2BF2236681F000EEAA56 /* UIBaseXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BF0236681F000EEAA56 /* UIBaseXibView.m */; };
+		B68C2BF82366826C00EEAA56 /* UITableViewCell+StoryBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BF42366826B00EEAA56 /* UITableViewCell+StoryBoard.m */; };
+		B68C2BF92366826C00EEAA56 /* UIView+Custom_Xib.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BF72366826C00EEAA56 /* UIView+Custom_Xib.m */; };
+		B68C2BFC236685B200EEAA56 /* MainSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2BFB236685B200EEAA56 /* MainSectionView.m */; };
+		B68C2BFE236685C000EEAA56 /* MainSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68C2BFD236685C000EEAA56 /* MainSectionView.xib */; };
+		B68C2C0123668A9700EEAA56 /* RWAutoTagViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68C2C0023668A9700EEAA56 /* RWAutoTagViewViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		449F716E236587420077BE63 /* RWAutoTagViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWAutoTagViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		449F7171236587420077BE63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		449F7172236587420077BE63 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		449F7174236587420077BE63 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		449F7175236587420077BE63 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		449F7177236587430077BE63 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		449F7178236587430077BE63 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		449F717B236587430077BE63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		449F717D236587440077BE63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		449F7180236587440077BE63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		449F7182236587440077BE63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		449F7183236587440077BE63 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		931E2C679566567B864FC448 /* Pods_RWAutoTagViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RWAutoTagViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B66A091423681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagViewPureCodeViewController.h; sourceTree = "<group>"; };
+		B66A091523681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAutoTagViewPureCodeViewController.m; sourceTree = "<group>"; };
+		B66A091723681F8E0035BFD8 /* RWAutoTagButtonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagButtonViewController.h; sourceTree = "<group>"; };
+		B66A091823681F8E0035BFD8 /* RWAutoTagButtonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAutoTagButtonViewController.m; sourceTree = "<group>"; };
+		B66A091A23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagButtonPureCodeViewController.h; sourceTree = "<group>"; };
+		B66A091B23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAutoTagButtonPureCodeViewController.m; sourceTree = "<group>"; };
+		B68C2BE42366805200EEAA56 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		B68C2BE52366805200EEAA56 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B68C2BE7236680E700EEAA56 /* MainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
+		B68C2BE8236680E700EEAA56 /* MainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
+		B68C2BEC236681B600EEAA56 /* RWAutoTagView.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagView.pch; sourceTree = "<group>"; };
+		B68C2BED236681F000EEAA56 /* UIBaseXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBaseXibView.h; sourceTree = "<group>"; };
+		B68C2BEE236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBaseStoryBoardTableViewCell.m; sourceTree = "<group>"; };
+		B68C2BEF236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBaseStoryBoardTableViewCell.h; sourceTree = "<group>"; };
+		B68C2BF0236681F000EEAA56 /* UIBaseXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBaseXibView.m; sourceTree = "<group>"; };
+		B68C2BF42366826B00EEAA56 /* UITableViewCell+StoryBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+StoryBoard.m"; sourceTree = "<group>"; };
+		B68C2BF52366826B00EEAA56 /* UITableViewCell+StoryBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+StoryBoard.h"; sourceTree = "<group>"; };
+		B68C2BF62366826B00EEAA56 /* UIView+Custom_Xib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Custom_Xib.h"; sourceTree = "<group>"; };
+		B68C2BF72366826C00EEAA56 /* UIView+Custom_Xib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Custom_Xib.m"; sourceTree = "<group>"; };
+		B68C2BFA236685B200EEAA56 /* MainSectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainSectionView.h; sourceTree = "<group>"; };
+		B68C2BFB236685B200EEAA56 /* MainSectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainSectionView.m; sourceTree = "<group>"; };
+		B68C2BFD236685C000EEAA56 /* MainSectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainSectionView.xib; sourceTree = "<group>"; };
+		B68C2BFF23668A9700EEAA56 /* RWAutoTagViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWAutoTagViewViewController.h; sourceTree = "<group>"; };
+		B68C2C0023668A9700EEAA56 /* RWAutoTagViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWAutoTagViewViewController.m; sourceTree = "<group>"; };
+		B83C68B6E88CC22BF0EF2F8C /* Pods-RWAutoTagViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWAutoTagViewDemo.release.xcconfig"; path = "Target Support Files/Pods-RWAutoTagViewDemo/Pods-RWAutoTagViewDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F2686ED5FAB575C0F3509741 /* Pods-RWAutoTagViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWAutoTagViewDemo.debug.xcconfig"; path = "Target Support Files/Pods-RWAutoTagViewDemo/Pods-RWAutoTagViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		449F716B236587420077BE63 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7121CDA2FA0AD1EC6D5BCA5B /* Pods_RWAutoTagViewDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		449F7165236587420077BE63 = {
+			isa = PBXGroup;
+			children = (
+				449F7170236587420077BE63 /* RWAutoTagViewDemo */,
+				449F716F236587420077BE63 /* Products */,
+				8A9AFD372B6A646F9B9F9ECB /* Pods */,
+				F1B36FBF8725060775B62332 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		449F716F236587420077BE63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				449F716E236587420077BE63 /* RWAutoTagViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		449F7170236587420077BE63 /* RWAutoTagViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				449F7171236587420077BE63 /* AppDelegate.h */,
+				449F7172236587420077BE63 /* AppDelegate.m */,
+				449F7174236587420077BE63 /* SceneDelegate.h */,
+				449F7175236587420077BE63 /* SceneDelegate.m */,
+				449F7177236587430077BE63 /* ViewController.h */,
+				449F7178236587430077BE63 /* ViewController.m */,
+				B68C2BE42366805200EEAA56 /* MainViewController.h */,
+				B68C2BE52366805200EEAA56 /* MainViewController.m */,
+				B68C2BFF23668A9700EEAA56 /* RWAutoTagViewViewController.h */,
+				B68C2C0023668A9700EEAA56 /* RWAutoTagViewViewController.m */,
+				B66A091423681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.h */,
+				B66A091523681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m */,
+				B66A091723681F8E0035BFD8 /* RWAutoTagButtonViewController.h */,
+				B66A091823681F8E0035BFD8 /* RWAutoTagButtonViewController.m */,
+				B66A091A23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.h */,
+				B66A091B23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m */,
+				B68C2BF32366822200EEAA56 /* Basic */,
+				B68C2BEA2366811600EEAA56 /* Model */,
+				B68C2BEB2366811600EEAA56 /* View */,
+				B68C2BE32366802E00EEAA56 /* Cell */,
+				449F717A236587430077BE63 /* Main.storyboard */,
+				449F717D236587440077BE63 /* Assets.xcassets */,
+				449F717F236587440077BE63 /* LaunchScreen.storyboard */,
+				449F7182236587440077BE63 /* Info.plist */,
+				B68C2BEC236681B600EEAA56 /* RWAutoTagView.pch */,
+				449F7183236587440077BE63 /* main.m */,
+			);
+			path = RWAutoTagViewDemo;
+			sourceTree = "<group>";
+		};
+		8A9AFD372B6A646F9B9F9ECB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2686ED5FAB575C0F3509741 /* Pods-RWAutoTagViewDemo.debug.xcconfig */,
+				B83C68B6E88CC22BF0EF2F8C /* Pods-RWAutoTagViewDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B68C2BE32366802E00EEAA56 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B68C2BE7236680E700EEAA56 /* MainTableViewCell.h */,
+				B68C2BE8236680E700EEAA56 /* MainTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B68C2BEA2366811600EEAA56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B68C2BEB2366811600EEAA56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B68C2BFA236685B200EEAA56 /* MainSectionView.h */,
+				B68C2BFB236685B200EEAA56 /* MainSectionView.m */,
+				B68C2BFD236685C000EEAA56 /* MainSectionView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B68C2BF32366822200EEAA56 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				B68C2BF52366826B00EEAA56 /* UITableViewCell+StoryBoard.h */,
+				B68C2BF42366826B00EEAA56 /* UITableViewCell+StoryBoard.m */,
+				B68C2BF62366826B00EEAA56 /* UIView+Custom_Xib.h */,
+				B68C2BF72366826C00EEAA56 /* UIView+Custom_Xib.m */,
+				B68C2BEF236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.h */,
+				B68C2BEE236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m */,
+				B68C2BED236681F000EEAA56 /* UIBaseXibView.h */,
+				B68C2BF0236681F000EEAA56 /* UIBaseXibView.m */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		F1B36FBF8725060775B62332 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				931E2C679566567B864FC448 /* Pods_RWAutoTagViewDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		449F716D236587420077BE63 /* RWAutoTagViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 449F7187236587440077BE63 /* Build configuration list for PBXNativeTarget "RWAutoTagViewDemo" */;
+			buildPhases = (
+				8C6932982BAC5A827A8A8C9A /* [CP] Check Pods Manifest.lock */,
+				449F716A236587420077BE63 /* Sources */,
+				449F716B236587420077BE63 /* Frameworks */,
+				449F716C236587420077BE63 /* Resources */,
+				71954654E46D0268B199336C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RWAutoTagViewDemo;
+			productName = RWAutoTagViewDemo;
+			productReference = 449F716E236587420077BE63 /* RWAutoTagViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		449F7166236587420077BE63 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "曾云";
+				TargetAttributes = {
+					449F716D236587420077BE63 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = 449F7169236587420077BE63 /* Build configuration list for PBXProject "RWAutoTagViewDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 449F7165236587420077BE63;
+			productRefGroup = 449F716F236587420077BE63 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				449F716D236587420077BE63 /* RWAutoTagViewDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		449F716C236587420077BE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				449F7181236587440077BE63 /* LaunchScreen.storyboard in Resources */,
+				449F717E236587440077BE63 /* Assets.xcassets in Resources */,
+				B68C2BFE236685C000EEAA56 /* MainSectionView.xib in Resources */,
+				449F717C236587430077BE63 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71954654E46D0268B199336C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RWAutoTagViewDemo/Pods-RWAutoTagViewDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RWAutoTagViewDemo/Pods-RWAutoTagViewDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RWAutoTagViewDemo/Pods-RWAutoTagViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C6932982BAC5A827A8A8C9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RWAutoTagViewDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		449F716A236587420077BE63 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B68C2C0123668A9700EEAA56 /* RWAutoTagViewViewController.m in Sources */,
+				B68C2BFC236685B200EEAA56 /* MainSectionView.m in Sources */,
+				B66A091923681F8E0035BFD8 /* RWAutoTagButtonViewController.m in Sources */,
+				B68C2BE9236680E700EEAA56 /* MainTableViewCell.m in Sources */,
+				B68C2BE62366805200EEAA56 /* MainViewController.m in Sources */,
+				449F7179236587430077BE63 /* ViewController.m in Sources */,
+				B68C2BF2236681F000EEAA56 /* UIBaseXibView.m in Sources */,
+				B68C2BF92366826C00EEAA56 /* UIView+Custom_Xib.m in Sources */,
+				449F7173236587420077BE63 /* AppDelegate.m in Sources */,
+				449F7184236587440077BE63 /* main.m in Sources */,
+				B66A091C23681FE20035BFD8 /* RWAutoTagButtonPureCodeViewController.m in Sources */,
+				B68C2BF82366826C00EEAA56 /* UITableViewCell+StoryBoard.m in Sources */,
+				449F7176236587420077BE63 /* SceneDelegate.m in Sources */,
+				B68C2BF1236681F000EEAA56 /* UIBaseStoryBoardTableViewCell.m in Sources */,
+				B66A091623681CB70035BFD8 /* RWAutoTagViewPureCodeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		449F717A236587430077BE63 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				449F717B236587430077BE63 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		449F717F236587440077BE63 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				449F7180236587440077BE63 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		449F7185236587440077BE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		449F7186236587440077BE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		449F7188236587440077BE63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2686ED5FAB575C0F3509741 /* Pods-RWAutoTagViewDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.0;
+				DEVELOPMENT_TEAM = WMQ2G56729;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RWAutoTagViewDemo/RWAutoTagView.pch";
+				INFOPLIST_FILE = RWAutoTagViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AFY.RWAutoTagViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		449F7189236587440077BE63 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B83C68B6E88CC22BF0EF2F8C /* Pods-RWAutoTagViewDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.0;
+				DEVELOPMENT_TEAM = WMQ2G56729;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/RWAutoTagViewDemo/RWAutoTagView.pch";
+				INFOPLIST_FILE = RWAutoTagViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AFY.RWAutoTagViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		449F7169236587420077BE63 /* Build configuration list for PBXProject "RWAutoTagViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				449F7185236587440077BE63 /* Debug */,
+				449F7186236587440077BE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		449F7187236587440077BE63 /* Build configuration list for PBXNativeTarget "RWAutoTagViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				449F7188236587440077BE63 /* Debug */,
+				449F7189236587440077BE63 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 449F7166236587420077BE63 /* Project object */;
+}
