@@ -22,7 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"CustomAutoTagButton  initWithFrame");
+//        NSLog(@"CustomAutoTagButton  initWithFrame");
         [self initAttribute];
         [self initAutoButtonSubViews];
     }
@@ -33,8 +33,7 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        NSLog(@"CustomAutoTagButton initWithCoder");
-        
+//        NSLog(@"CustomAutoTagButton initWithCoder");
         [self initAttribute];
         [self initAutoButtonSubViews];
     }
@@ -484,7 +483,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-     NSLog(@"drawRect%@ %@",NSStringFromCGRect(rect),NSStringFromUIEdgeInsets(self.contentEdgeInsets));
+//     NSLog(@"drawRect%@ %@",NSStringFromCGRect(rect),NSStringFromUIEdgeInsets(self.contentEdgeInsets));
 //    [self reloadAutoTagButtonFrame];
 }
 

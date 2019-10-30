@@ -26,7 +26,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"initWithFrame");
+//        NSLog(@"initWithFrame");
         [self initAttribute];
     }
     return self;
@@ -47,7 +47,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        NSLog(@"initWithCoder");
+//        NSLog(@"initWithCoder");
         [self initAttribute];
     }
     return self;
@@ -242,6 +242,7 @@
         _lineStyle = lineStyle;
 //        [self invalidateIntrinsicContentSize];
         [self setNeedsLayout];
+//        self.rw_size = [self intrinsicContentSize];
     }
 }
 
@@ -250,12 +251,14 @@
         _safeAreaLayoutMaxWidth = safeAreaLayoutMaxWidth;
 //        [self invalidateIntrinsicContentSize];
         [self setNeedsLayout];
+//        self.rw_size = [self intrinsicContentSize];
     }
 }
 - (void)setFullSafeAreaStyle:(RWAutoTagViewFullSafeAreaStyle)fullSafeAreaStyle {
     if (_fullSafeAreaStyle != fullSafeAreaStyle) {
         _fullSafeAreaStyle = fullSafeAreaStyle;
         [self setNeedsLayout];
+        self.rw_size = [self intrinsicContentSize];
     }
 }
 
@@ -266,6 +269,7 @@
         _autoSortStyle = autoSortStyle;
         if (self.isItemSort) {
             [self reloadData];
+//            self.rw_size = [self intrinsicContentSize];
 //            [self invalidateIntrinsicContentSize];
         }
     }
@@ -301,10 +305,7 @@
             break;
     }
     
-    self.rw_size = newSize;
-     if (self.delegate && [self.delegate respondsToSelector:@selector(autoTagView:autoLayoutAutoTagButtonAtIndex:)]) {
-        [self.delegate autoTagView:self autoLayoutAutoTagButtonAtIndex:1];
-     }
+//    self.rw_size = newSize;
     NSLog(@"rw_size:%@",NSStringFromCGSize(self.rw_size));
 }
 
@@ -327,7 +328,7 @@
        default:
            break;
    }
-    NSLog(@"intrinsicContentSize:%@",NSStringFromCGSize(newSize));
+//    NSLog(@"intrinsicContentSize:%@",NSStringFromCGSize(newSize));
     return newSize;
 }
 
@@ -378,7 +379,7 @@
     intrinsicHeight += (current_Y +bottom);
     lineMaxWidth += (left +right);
     intrinsicWidth = [self intrinsicWidth:lineMaxWidth];
-    
+    self.rw_size = CGSizeMake(intrinsicWidth, intrinsicHeight);
     return CGSizeMake(intrinsicWidth, intrinsicHeight);
 }
 
@@ -449,6 +450,7 @@
 
     
     intrinsicWidth = [self intrinsicWidth:lineMaxWidth];
+    self.rw_size = CGSizeMake(intrinsicWidth, intrinsicHeight);
     return CGSizeMake(intrinsicWidth, intrinsicHeight);
 }
 
