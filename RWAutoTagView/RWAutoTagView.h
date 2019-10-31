@@ -82,8 +82,6 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewFullSafeAreaStyle) {
  */
 @property (nonatomic,assign) RWAutoTagViewAutoSortStyle autoSortStyle; /**< 排序样式 */
 
-@property (nonatomic,readonly) NSArray *buttons;/* 🐱 按钮存放数组 */
-
 /* 🐱 RWAutoTagButton 点击事件Block
  autoTagView 当前的RWAutoTagView
  index 表示点击的第几个RWAutoTagButton
