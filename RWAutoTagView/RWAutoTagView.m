@@ -82,8 +82,9 @@
         if (self.dataSource && [self.dataSource respondsToSelector:@selector(autoTagView:autoTagButtonForAtIndex:)]) {
             RWAutoTagButton *autoTagButton = [self.dataSource autoTagView:self autoTagButtonForAtIndex:i];
             autoTagButton.tag = i+1000;
+            autoTagButton.safeAreaLayoutMaxWidth = self.safeAreaLayoutMaxWidth - self.insets.left - self.insets.right;
             if (self.dataSource && [self.dataSource respondsToSelector:@selector(safeAreaLayoutMaxWidthInAutoTagView:)]) {
-                autoTagButton.safeAreaLayoutMaxWidth = [self.dataSource safeAreaLayoutMaxWidthInAutoTagView:self];
+                autoTagButton.safeAreaLayoutMaxWidth = [self.dataSource safeAreaLayoutMaxWidthInAutoTagView:self] - self.insets.left - self.insets.right;
             }
             [autoTagButton addTarget:self action:@selector(autoTagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             [autoTagButton setNeedsLayout];
@@ -246,6 +247,11 @@
     }
 }
 
+- (void)setInsets:(UIEdgeInsets)insets {
+    _insets = insets;
+    [self reloadData];
+}
+
 - (void)setSafeAreaLayoutMaxWidth:(CGFloat)safeAreaLayoutMaxWidth {
     if (_safeAreaLayoutMaxWidth != safeAreaLayoutMaxWidth) {
         _safeAreaLayoutMaxWidth = safeAreaLayoutMaxWidth;
@@ -364,7 +370,7 @@
             if ((size.width >= self.safeAreaLayoutMaxWidth) ||
                 (width + left +right) >= self.safeAreaLayoutMaxWidth) {
                 width = self.safeAreaLayoutMaxWidth - left -right;
-                intrinsicHeight += height;
+//                intrinsicHeight += height;
             }
             
             lineMaxWidth = MAX(lineMaxWidth, width);

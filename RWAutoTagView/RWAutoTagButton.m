@@ -396,7 +396,7 @@
         case RWAutoTagButtonImageEdgeInsetStyleRight: {
             
             intrinsicHeight += MAX(maxImageHeight, maxLabelHeight);
-            intrinsicWidth += maxImageWidth + maxLabelWidth +lineitemSpacing;
+            intrinsicWidth += MIN(self.safeAreaLayoutMaxWidth - ([self getContentInsetsLeft] + [self getContentInsetsRight]), maxImageWidth + maxLabelWidth +lineitemSpacing);
             intrinsicWidth = [self intrinsicSafeWidth:intrinsicWidth];
             image_Y = (intrinsicHeight-image_Height)/2;
             if (maxImageHeight > maxLabelHeight) {
@@ -473,7 +473,7 @@
 
 - (CGFloat)intrinsicSafeWidth:(CGFloat)newIntrinsicWidth {
     if (newIntrinsicWidth >=self.safeAreaLayoutMaxWidth) {
-        newIntrinsicWidth = self.safeAreaLayoutMaxWidth;
+        newIntrinsicWidth = self.safeAreaLayoutMaxWidth - ([self getContentInsetsLeft] + [self getContentInsetsRight]);
     }
     return newIntrinsicWidth;
 }
