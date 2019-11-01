@@ -14,6 +14,12 @@
 
 @property (nonatomic,strong) RWAutoTagButton *autoTagButton;/* <#注释#> */
 
+@property (nonatomic,strong) UIButton *clickButton;/* <#注释#> */
+@property (weak, nonatomic) IBOutlet UIButton *text;
+
+@property (nonatomic,strong) UIButton *imageClickButton;/* <#注释#> */
+@property (weak, nonatomic) IBOutlet UIButton *image_left;
+
 @end
 
 @implementation RWAutoTagButtonPureCodeViewController
@@ -23,36 +29,82 @@
     [self.autoTagButton setTitle:@"测试纯文字" forState:UIControlStateNormal];
     self.imageBackView.hidden = YES;
 }
+
+- (void)reloadClickButton:(UIButton *)clickButton {
+    if (self.clickButton) {
+        self.clickButton.selected = NO;
+    }
+    self.clickButton = clickButton;
+}
+
+- (void)reloadImageClickButton:(UIButton *)imageClickButton {
+    if (self.imageClickButton) {
+        self.imageClickButton.selected = NO;
+    }
+    self.imageClickButton = imageClickButton;
+}
+
 - (IBAction)style_image:(UIButton *)sender {
-    self.autoTagButton.autoTagButtonStyle =RWAutoTagButtonStyle_Image;
-    //bundle里面有默认图片
-    self.imageBackView.hidden = YES;
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadClickButton:sender];
+        self.autoTagButton.autoTagButtonStyle =RWAutoTagButtonStyle_Image;
+           //bundle里面有默认图片
+        self.imageBackView.hidden = YES;
+    }
+   
 }
+
+
+
 - (IBAction)style_mingle:(UIButton *)sender {
-    self.autoTagButton.autoTagButtonStyle =RWAutoTagButtonStyle_Mingle;
-    //bundle里面有默认图片
-    [self.autoTagButton setTitle:@"图片在左边" forState:UIControlStateNormal];
-     [self.autoTagButton setImage:[UIImage imageNamed:@"comment_selected"] forState:UIControlStateNormal];
-    [self imageInsetStyle_left:nil];
-    self.imageBackView.hidden = NO;
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadClickButton:sender];
+        self.autoTagButton.autoTagButtonStyle =RWAutoTagButtonStyle_Mingle;
+        //bundle里面有默认图片
+        [self.autoTagButton setTitle:@"图片在左边" forState:UIControlStateNormal];
+         [self.autoTagButton setImage:[UIImage imageNamed:@"comment_selected"] forState:UIControlStateNormal];
+        [self imageInsetStyle_left:self.imageClickButton];
+        self.imageBackView.hidden = NO;
+    }
 }
+
 - (IBAction)imageInsetStyle_left:(UIButton *)sender {
-    self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleLeft;
-     [self.autoTagButton setImage:[UIImage imageNamed:@"comment_selected"] forState:UIControlStateNormal];
-    [self.autoTagButton setTitle:@"图片在左边" forState:UIControlStateNormal];
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadImageClickButton:sender];
+        self.autoTagButton.imageEdgeInsetStyle = RWAutoTagButtonImageEdgeInsetStyleLeft;
+         [self.autoTagButton setImage:[UIImage imageNamed:@"comment_selected"] forState:UIControlStateNormal];
+        [self.autoTagButton setTitle:@"图片在左边" forState:UIControlStateNormal];
+    }
 }
 - (IBAction)imageInsetStyle_right:(UIButton *)sender {
-    self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleRight;
-    [self.autoTagButton setTitle:@"图片在右边" forState:UIControlStateNormal];
+    if (!sender.selected) {
+       sender.selected = !sender.selected;
+       [self reloadImageClickButton:sender];
+       self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleRight;
+       [self.autoTagButton setTitle:@"图片在右边" forState:UIControlStateNormal];
+   }
 }
 - (IBAction)imageInsetStyle_top:(UIButton *)sender {
-    self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleTop;
-     [self.autoTagButton setTitle:@"图片在上边" forState:UIControlStateNormal];
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadImageClickButton:sender];
+        self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleTop;
+        [self.autoTagButton setTitle:@"图片在上边" forState:UIControlStateNormal];
+    }
+    
 }
 - (IBAction)imageInsetStyle_bottom:(UIButton *)sender {
-    self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleBottom;
-    [self.autoTagButton setImage:[UIImage imageNamed:@"comment_selected"] forState:UIControlStateNormal];
-    [self.autoTagButton setTitle:@"图片在下边" forState:UIControlStateNormal];
+    
+   if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadImageClickButton:sender];
+         self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleBottom;
+        [self.autoTagButton setImage:[UIImage imageNamed:@"comment_selected"] forState:UIControlStateNormal];
+        [self.autoTagButton setTitle:@"图片在下边" forState:UIControlStateNormal];
+    }
 }
 
 
@@ -60,7 +112,9 @@
     [super viewDidLoad];
     self.navigationItem.title = @"纯代码使用介绍以及效果";
     // Do any additional setup after loading the view.
-    
+    self.imageBackView.hidden = YES;
+    self.imageClickButton = self.image_left;
+    self.clickButton = self.text;
     RWAutoTagButton *autoTagButton = [RWAutoTagButton buttonWithType:UIButtonTypeCustom];
     autoTagButton.safeAreaLayoutMaxWidth = self.view.rw_w;
     [autoTagButton setTitle:@"纯代码创建" forState:UIControlStateNormal];

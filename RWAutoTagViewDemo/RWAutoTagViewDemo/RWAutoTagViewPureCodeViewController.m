@@ -13,60 +13,126 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *backView_Constraint_Height;
 @property (nonatomic,strong) RWAutoTagView *autoTagView;/* <#注释#> */
 
+
+
+@property (nonatomic,strong) UIButton *sortButton;/* 排序 */
+@property (weak, nonatomic) IBOutlet UIButton *normal;
+
+@property (nonatomic,strong) UIButton *lineButton;/* 排列 */
+@property (weak, nonatomic) IBOutlet UIButton *autoLine;
+
+@property (nonatomic,strong) UIButton *fullButton;/* 宽样式 */
+@property (weak, nonatomic) IBOutlet UIButton *full;
+
+
 @end
 
 @implementation RWAutoTagViewPureCodeViewController
 
+
+- (void)reloadSortButton:(UIButton *)sortButton {
+    if (self.sortButton) {
+        self.sortButton.selected = NO;
+    }
+    self.sortButton = sortButton;
+}
+
+- (void)reloadLineButton:(UIButton *)lineButton {
+    if (self.lineButton) {
+        self.lineButton.selected = NO;
+    }
+    self.lineButton = lineButton;
+}
+
+
+- (void)reloadFullButton:(UIButton *)fullButton {
+    if (self.fullButton) {
+        self.fullButton.selected = NO;
+    }
+    self.fullButton = fullButton;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.sortButton = self.normal;
+    self.lineButton = self.autoLine;
+    self.fullButton = self.full;
+    NSLog(@"viewDidLoad = %f",self.view.frame.size.width);
     self.navigationItem.title = @"纯代码使用介绍以及效果";
     RWAutoTagView *autoTagView = [RWAutoTagView autoTagViewWithAutoSortStyle:RWAutoTagViewAutoSortStyleNormal];
     autoTagView.dataSource = self;
     autoTagView.delegate = self;
     autoTagView.insets = UIEdgeInsetsMake(10, 10, 10, 10);
-    autoTagView.backgroundColor = [UIColor cyanColor];
-    autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleAscending;
+    autoTagView.backgroundColor = [UIColor yellowColor];
+//    autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleAscending;
 //        autoTagView.rw_y  = 40.0f;
-    [autoTagView layoutSubviews];
+//    [autoTagView layoutSubviews];
     [self.backView addSubview:autoTagView];
+    autoTagView.backgroundColor = [UIColor cyanColor];
     self.autoTagView = autoTagView;
     self.backView_Constraint_Height.constant = autoTagView.intrinsicContentSize.height;
 }
 
 
 - (IBAction)autoSortNormal:(UIButton *)sender {
-    
-    self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleNormal;
-    self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
- 
-    NSLog(@"RWAutoTagViewAutoSortStyleNormal:%f  %@",self.autoTagView.intrinsicContentSize.height,NSStringFromCGSize(self.autoTagView.rw_size));
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadSortButton:sender];
+        self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleNormal;
+        self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
+    }
 }
 - (IBAction)autoSortDescending:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleDescending;
-    self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
-    
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadSortButton:sender];
+        self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleDescending;
+        self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
+    }
 }
+
 - (IBAction)autoSortAseending:(UIButton *)sender {
-    self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleAscending;
-    self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
+    if (!sender.selected) {
+       sender.selected = !sender.selected;
+       [self reloadSortButton:sender];
+       self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleAscending;
+       self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
+   }
+    
 }
 
 - (IBAction)lineStyleSingle:(UIButton *)sender {
-    self.autoTagView.lineStyle = RWAutoTagViewLineStyle_SingleLine;
-    self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadLineButton:sender];
+        self.autoTagView.lineStyle = RWAutoTagViewLineStyle_SingleLine;
+        self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
+    }
 }
 - (IBAction)lineStyleAutoLine:(UIButton *)sender {
-    self.autoTagView.lineStyle = RWAutoTagViewLineStyle_AutoLine;
-    self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadLineButton:sender];
+        self.autoTagView.lineStyle = RWAutoTagViewLineStyle_AutoLine;
+        self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
+    }
 }
 
 - (IBAction)fullSafeAreaStyleAuto:(UIButton *)sender {
-    self.autoTagView.fullSafeAreaStyle = RWAutoTagViewFullSafeAreaStyle_AutoWidth;
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadFullButton:sender];
+        self.autoTagView.fullSafeAreaStyle = RWAutoTagViewFullSafeAreaStyle_AutoWidth;
+    }
 }
 - (IBAction)fullSafeAreaStyle:(UIButton *)sender {
-    self.autoTagView.fullSafeAreaStyle = RWAutoTagViewFullSafeAreaStyle_MaxWidth;
+    if (!sender.selected) {
+        sender.selected = !sender.selected;
+        [self reloadFullButton:sender];
+        self.autoTagView.fullSafeAreaStyle = RWAutoTagViewFullSafeAreaStyle_MaxWidth;
+    }
 }
+
 
 
 
@@ -83,7 +149,7 @@
         autoTagStyle = RWAutoTagStyle_Image;
     } else if (index == 1) {
         autoTagStyle = RWAutoTagStyle_Text;
-        text = @"只有文字";
+        text = @"只有文字只有文字只有文字";
     }
     RWAutoTag *autoTag = [RWAutoTag autoTagWithTagStyle:autoTagStyle];
     if (autoTagStyle == RWAutoTagStyle_Mingle) {
@@ -91,13 +157,13 @@
         text = @"图文结合,图在上面";
         if (index == 2) {
             imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Left;
-            text = @"图文结合,图在左边";
+            text = @"图文结合,图在左边图文结合,图在左边图文结合,图在左边图文结合,图在左边";
         } else if (index == 3) {
             imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Right;
             text = @"图文结合,图在右边";
         } else if (index == 4) {
             imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Bottom;
-            text = @"图文结合,图在下边";
+            text = @"图文结合,图在下边图文结合,图在左边图文结合,图在左边图文结合,图在左边";
         }
         autoTag.imageEdgeInsetStyle = imageEdgeInsetStyle;
     }

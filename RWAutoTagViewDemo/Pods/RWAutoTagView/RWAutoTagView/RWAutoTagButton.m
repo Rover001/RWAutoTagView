@@ -22,7 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"CustomAutoTagButton  initWithFrame");
+//        NSLog(@"CustomAutoTagButton  initWithFrame");
         [self initAttribute];
         [self initAutoButtonSubViews];
     }
@@ -33,8 +33,7 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        NSLog(@"CustomAutoTagButton initWithCoder");
-        
+//        NSLog(@"CustomAutoTagButton initWithCoder");
         [self initAttribute];
         [self initAutoButtonSubViews];
     }
@@ -397,7 +396,7 @@
         case RWAutoTagButtonImageEdgeInsetStyleRight: {
             
             intrinsicHeight += MAX(maxImageHeight, maxLabelHeight);
-            intrinsicWidth += maxImageWidth + maxLabelWidth +lineitemSpacing;
+            intrinsicWidth += MIN(self.safeAreaLayoutMaxWidth - ([self getContentInsetsLeft] + [self getContentInsetsRight]), maxImageWidth + maxLabelWidth +lineitemSpacing);
             intrinsicWidth = [self intrinsicSafeWidth:intrinsicWidth];
             image_Y = (intrinsicHeight-image_Height)/2;
             if (maxImageHeight > maxLabelHeight) {
@@ -474,7 +473,7 @@
 
 - (CGFloat)intrinsicSafeWidth:(CGFloat)newIntrinsicWidth {
     if (newIntrinsicWidth >=self.safeAreaLayoutMaxWidth) {
-        newIntrinsicWidth = self.safeAreaLayoutMaxWidth;
+        newIntrinsicWidth = self.safeAreaLayoutMaxWidth - ([self getContentInsetsLeft] + [self getContentInsetsRight]);
     }
     return newIntrinsicWidth;
 }
@@ -484,7 +483,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-     NSLog(@"drawRect%@ %@",NSStringFromCGRect(rect),NSStringFromUIEdgeInsets(self.contentEdgeInsets));
+//     NSLog(@"drawRect%@ %@",NSStringFromCGRect(rect),NSStringFromUIEdgeInsets(self.contentEdgeInsets));
 //    [self reloadAutoTagButtonFrame];
 }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ggQ-4L-feR">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -13,7 +13,6 @@
             <objects>
                 <navigationController id="ggQ-4L-feR" userLabel="导航栏" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zgM-uI-bYW">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -139,13 +138,16 @@
                                     <constraint firstAttribute="trailing" secondItem="Dsm-1l-TPI" secondAttribute="trailing" id="mJg-ko-igV"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqe-vo-WI7">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqe-vo-WI7">
                                 <rect key="frame" x="10" y="154" width="124.5" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="默认排序">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="autoSortNormal:" destination="WYC-LV-P5H" eventType="touchUpInside" id="H2p-nY-h3F"/>
@@ -159,6 +161,9 @@
                                 <state key="normal" title="降序排序">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="autoSortAseending:" destination="WYC-LV-P5H" eventType="touchUpInside" id="F7v-ZV-5fp"/>
                                 </connections>
@@ -171,6 +176,9 @@
                                 <state key="normal" title="升序排序">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="autoSortDescending:" destination="WYC-LV-P5H" eventType="touchUpInside" id="Yhp-gF-rix"/>
                                 </connections>
@@ -181,36 +189,48 @@
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                 <state key="normal" title="单行显示 "/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="lineStyleSingle:" destination="WYC-LV-P5H" eventType="touchUpInside" id="nrT-lv-Teq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-Kn-l8y">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-Kn-l8y">
                                 <rect key="frame" x="217" y="216" width="167" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
                                 <state key="normal" title="动态显示"/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="lineStyleAutoLine:" destination="WYC-LV-P5H" eventType="touchUpInside" id="WsB-cu-0TY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yO-Qu-nrc" userLabel="单个一行显示">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yO-Qu-nrc">
                                 <rect key="frame" x="30" y="278" width="167" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                 <state key="normal" title="动态宽"/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="fullSafeAreaStyleAuto:" destination="WYC-LV-P5H" eventType="touchUpInside" id="T7L-uv-SBQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVR-he-vL6">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVR-he-vL6">
                                 <rect key="frame" x="217" y="278" width="167" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
                                 <state key="normal" title="固定宽"/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="fullSafeAreaStyle:" destination="WYC-LV-P5H" eventType="touchUpInside" id="Heo-y1-zOY"/>
                                 </connections>
@@ -248,8 +268,11 @@
                         <viewLayoutGuide key="safeArea" id="xul-Ya-Ffq"/>
                     </view>
                     <connections>
+                        <outlet property="autoLine" destination="5qr-Kn-l8y" id="k4N-mg-EnQ"/>
                         <outlet property="autoTagView_BackView" destination="zVZ-bd-GML" id="rgS-tY-fdQ"/>
                         <outlet property="autoTagView_BackView_Height" destination="7GG-Y4-fmo" id="mda-dd-g98"/>
+                        <outlet property="full" destination="uVR-he-vL6" id="Vax-Ik-SAm"/>
+                        <outlet property="normal" destination="sqe-vo-WI7" id="UWW-Ev-IUg"/>
                         <outlet property="xib_AutoTagView" destination="Dsm-1l-TPI" id="pHK-Mw-UBt"/>
                     </connections>
                 </viewController>
@@ -267,12 +290,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okJ-5u-7VF">
                                 <rect key="frame" x="0.0" y="44" width="414" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.56470588239999997" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="5ty-Sy-geI"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf7-YJ-eop">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bf7-YJ-eop">
                                 <rect key="frame" x="10" y="164" width="124.5" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
@@ -280,8 +303,10 @@
                                 <state key="normal" title="默认排序">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="autoSortNormal:" destination="WYC-LV-P5H" eventType="touchUpInside" id="BTp-E5-Fjv"/>
                                     <action selector="autoSortNormal:" destination="RMp-G9-CfO" eventType="touchUpInside" id="txW-Lt-Rxf"/>
                                 </connections>
                             </button>
@@ -293,8 +318,10 @@
                                 <state key="normal" title="降序排序">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="autoSortAseending:" destination="WYC-LV-P5H" eventType="touchUpInside" id="43z-5q-H1o"/>
                                     <action selector="autoSortAseending:" destination="RMp-G9-CfO" eventType="touchUpInside" id="Dv8-1m-vCx"/>
                                 </connections>
                             </button>
@@ -306,9 +333,11 @@
                                 <state key="normal" title="升序排序">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="autoSortDescending:" destination="RMp-G9-CfO" eventType="touchUpInside" id="OOx-19-YOx"/>
-                                    <action selector="autoSortDescending:" destination="WYC-LV-P5H" eventType="touchUpInside" id="hhV-AJ-YlZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0k-j2-kza" userLabel="单个一行显示">
@@ -317,19 +346,23 @@
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                 <state key="normal" title="单行显示 "/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="lineStyleSingle:" destination="RMp-G9-CfO" eventType="touchUpInside" id="Z5R-9d-kQq"/>
-                                    <action selector="lineStyleSingle:" destination="WYC-LV-P5H" eventType="touchUpInside" id="aUr-4R-Y0V"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qF1-qD-s3W">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qF1-qD-s3W">
                                 <rect key="frame" x="217" y="226" width="167" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
                                 <state key="normal" title="动态显示"/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="lineStyleAutoLine:" destination="WYC-LV-P5H" eventType="touchUpInside" id="Sdc-9W-ahr"/>
                                     <action selector="lineStyleAutoLine:" destination="RMp-G9-CfO" eventType="touchUpInside" id="V7P-ro-cxL"/>
                                 </connections>
                             </button>
@@ -339,19 +372,23 @@
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                 <state key="normal" title="动态宽"/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="fullSafeAreaStyleAuto:" destination="WYC-LV-P5H" eventType="touchUpInside" id="OmC-Py-8oN"/>
                                     <action selector="fullSafeAreaStyleAuto:" destination="RMp-G9-CfO" eventType="touchUpInside" id="WxU-ft-6zU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEk-6b-V2h">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEk-6b-V2h">
                                 <rect key="frame" x="217" y="288" width="167" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="30" minY="10" maxX="30" maxY="10"/>
                                 <state key="normal" title="固定宽"/>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="fullSafeAreaStyle:" destination="WYC-LV-P5H" eventType="touchUpInside" id="NNW-SP-IRy"/>
                                     <action selector="fullSafeAreaStyle:" destination="RMp-G9-CfO" eventType="touchUpInside" id="kxX-dq-Oq5"/>
                                 </connections>
                             </button>
@@ -388,8 +425,11 @@
                         <viewLayoutGuide key="safeArea" id="f4A-ux-4BR"/>
                     </view>
                     <connections>
+                        <outlet property="autoLine" destination="qF1-qD-s3W" id="CUM-30-2pw"/>
                         <outlet property="backView" destination="okJ-5u-7VF" id="fqS-1a-Dz9"/>
                         <outlet property="backView_Constraint_Height" destination="5ty-Sy-geI" id="Wno-fp-n9w"/>
+                        <outlet property="full" destination="DEk-6b-V2h" id="PwF-ig-98Z"/>
+                        <outlet property="normal" destination="Bf7-YJ-eop" id="ntQ-iH-XKA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uwe-ZI-ckc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -413,13 +453,16 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er6-Te-Wbp">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Er6-Te-Wbp">
                                 <rect key="frame" x="10" y="126" width="124.5" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="文字">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="style_text:" destination="kbI-hI-K5O" eventType="touchUpInside" id="bGr-Mn-HhS"/>
@@ -433,6 +476,9 @@
                                 <state key="normal" title="图片">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="style_image:" destination="kbI-hI-K5O" eventType="touchUpInside" id="A3W-nU-w6A"/>
                                 </connections>
@@ -445,6 +491,9 @@
                                 <state key="normal" title="图文">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="style_mingle:" destination="kbI-hI-K5O" eventType="touchUpInside" id="cst-In-Lu1"/>
                                 </connections>
@@ -452,12 +501,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1L1-Yq-Lk5">
                                 <rect key="frame" x="0.0" y="188" width="414" height="42"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbw-Aq-zkh">
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbw-Aq-zkh">
                                         <rect key="frame" x="10" y="0.0" width="91" height="42"/>
                                         <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="图左"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="imageInsetStyle_left:" destination="kbI-hI-K5O" eventType="touchUpInside" id="zyv-T2-dYj"/>
                                         </connections>
@@ -468,6 +520,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="图右"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="imageInsetStyle_right:" destination="kbI-hI-K5O" eventType="touchUpInside" id="MOM-Nq-tak"/>
                                         </connections>
@@ -478,6 +533,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="图上"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="imageInsetStyle_top:" destination="kbI-hI-K5O" eventType="touchUpInside" id="tAx-fc-YYR"/>
                                         </connections>
@@ -488,6 +546,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="图下"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="imageInsetStyle_bottom:" destination="kbI-hI-K5O" eventType="touchUpInside" id="p1b-dO-evk"/>
                                         </connections>
@@ -534,6 +595,8 @@
                     </view>
                     <connections>
                         <outlet property="imageBackView" destination="1L1-Yq-Lk5" id="cBm-JF-gfH"/>
+                        <outlet property="image_left" destination="Wbw-Aq-zkh" id="qhA-GG-zjL"/>
+                        <outlet property="text" destination="Er6-Te-Wbp" id="lBL-ME-ZZT"/>
                         <outlet property="xib_AutoTagButton" destination="hfy-Bf-zDB" id="0xQ-HV-XHg"/>
                     </connections>
                 </viewController>
@@ -549,13 +612,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCJ-P1-ZPM">
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCJ-P1-ZPM">
                                 <rect key="frame" x="10" y="184" width="124.5" height="42"/>
                                 <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="文字">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="style_text:" destination="Rrf-5z-bfr" eventType="touchUpInside" id="gnQ-sH-ypo"/>
@@ -569,6 +635,9 @@
                                 <state key="normal" title="图文">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="style_mingle:" destination="Rrf-5z-bfr" eventType="touchUpInside" id="XRn-wX-GI8"/>
                                 </connections>
@@ -580,6 +649,9 @@
                                 <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 <state key="normal" title="图片">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="style_image:" destination="Rrf-5z-bfr" eventType="touchUpInside" id="Ll3-95-44e"/>
@@ -595,12 +667,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17q-wo-ol7">
                                 <rect key="frame" x="0.0" y="246" width="414" height="42"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gax-4o-wmr">
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gax-4o-wmr">
                                         <rect key="frame" x="10" y="0.0" width="91" height="42"/>
                                         <color key="backgroundColor" red="0.52156862749999999" green="0.63921568630000003" blue="0.88235294119999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="图左"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="imageInsetStyle_left:" destination="Rrf-5z-bfr" eventType="touchUpInside" id="Q67-UB-9Uc"/>
                                         </connections>
@@ -611,6 +686,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="图右"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="imageInsetStyle_right:" destination="Rrf-5z-bfr" eventType="touchUpInside" id="GY5-gF-s3F"/>
                                         </connections>
@@ -621,6 +699,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="图上"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="imageInsetStyle_top:" destination="Rrf-5z-bfr" eventType="touchUpInside" id="mn8-jf-2WG"/>
                                         </connections>
@@ -631,6 +712,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="图下"/>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.0039215686269999999" green="0.4941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="imageInsetStyle_bottom:" destination="Rrf-5z-bfr" eventType="touchUpInside" id="3id-yv-gng"/>
                                         </connections>
@@ -679,6 +763,8 @@
                     <connections>
                         <outlet property="backView" destination="CV1-pK-TvU" id="V0W-ht-hcI"/>
                         <outlet property="imageBackView" destination="17q-wo-ol7" id="j7J-Hw-aE6"/>
+                        <outlet property="image_left" destination="Gax-4o-wmr" id="QLZ-87-pRh"/>
+                        <outlet property="text" destination="OCJ-P1-ZPM" id="h3S-dx-69t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeV-xC-kbt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

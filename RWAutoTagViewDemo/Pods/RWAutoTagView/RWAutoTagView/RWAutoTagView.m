@@ -26,7 +26,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"initWithFrame");
+//        NSLog(@"initWithFrame");
         [self initAttribute];
     }
     return self;
@@ -47,7 +47,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        NSLog(@"initWithCoder");
+//        NSLog(@"initWithCoder");
         [self initAttribute];
     }
     return self;
@@ -82,8 +82,9 @@
         if (self.dataSource && [self.dataSource respondsToSelector:@selector(autoTagView:autoTagButtonForAtIndex:)]) {
             RWAutoTagButton *autoTagButton = [self.dataSource autoTagView:self autoTagButtonForAtIndex:i];
             autoTagButton.tag = i+1000;
+            autoTagButton.safeAreaLayoutMaxWidth = self.safeAreaLayoutMaxWidth - self.insets.left - self.insets.right;
             if (self.dataSource && [self.dataSource respondsToSelector:@selector(safeAreaLayoutMaxWidthInAutoTagView:)]) {
-                autoTagButton.safeAreaLayoutMaxWidth = [self.dataSource safeAreaLayoutMaxWidthInAutoTagView:self];
+                autoTagButton.safeAreaLayoutMaxWidth = [self.dataSource safeAreaLayoutMaxWidthInAutoTagView:self] - self.insets.left - self.insets.right;
             }
             [autoTagButton addTarget:self action:@selector(autoTagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
             [autoTagButton setNeedsLayout];
@@ -242,7 +243,13 @@
         _lineStyle = lineStyle;
 //        [self invalidateIntrinsicContentSize];
         [self setNeedsLayout];
+//        self.rw_size = [self intrinsicContentSize];
     }
+}
+
+- (void)setInsets:(UIEdgeInsets)insets {
+    _insets = insets;
+    [self reloadData];
 }
 
 - (void)setSafeAreaLayoutMaxWidth:(CGFloat)safeAreaLayoutMaxWidth {
@@ -250,12 +257,14 @@
         _safeAreaLayoutMaxWidth = safeAreaLayoutMaxWidth;
 //        [self invalidateIntrinsicContentSize];
         [self setNeedsLayout];
+//        self.rw_size = [self intrinsicContentSize];
     }
 }
 - (void)setFullSafeAreaStyle:(RWAutoTagViewFullSafeAreaStyle)fullSafeAreaStyle {
     if (_fullSafeAreaStyle != fullSafeAreaStyle) {
         _fullSafeAreaStyle = fullSafeAreaStyle;
         [self setNeedsLayout];
+        self.rw_size = [self intrinsicContentSize];
     }
 }
 
@@ -266,6 +275,7 @@
         _autoSortStyle = autoSortStyle;
         if (self.isItemSort) {
             [self reloadData];
+//            self.rw_size = [self intrinsicContentSize];
 //            [self invalidateIntrinsicContentSize];
         }
     }
@@ -301,10 +311,7 @@
             break;
     }
     
-    self.rw_size = newSize;
-     if (self.delegate && [self.delegate respondsToSelector:@selector(autoTagView:autoLayoutAutoTagButtonAtIndex:)]) {
-        [self.delegate autoTagView:self autoLayoutAutoTagButtonAtIndex:1];
-     }
+//    self.rw_size = newSize;
     NSLog(@"rw_size:%@",NSStringFromCGSize(self.rw_size));
 }
 
@@ -327,7 +334,7 @@
        default:
            break;
    }
-    NSLog(@"intrinsicContentSize:%@",NSStringFromCGSize(newSize));
+//    NSLog(@"intrinsicContentSize:%@",NSStringFromCGSize(newSize));
     return newSize;
 }
 
@@ -363,7 +370,7 @@
             if ((size.width >= self.safeAreaLayoutMaxWidth) ||
                 (width + left +right) >= self.safeAreaLayoutMaxWidth) {
                 width = self.safeAreaLayoutMaxWidth - left -right;
-                intrinsicHeight += height;
+//                intrinsicHeight += height;
             }
             
             lineMaxWidth = MAX(lineMaxWidth, width);
@@ -378,7 +385,7 @@
     intrinsicHeight += (current_Y +bottom);
     lineMaxWidth += (left +right);
     intrinsicWidth = [self intrinsicWidth:lineMaxWidth];
-    
+    self.rw_size = CGSizeMake(intrinsicWidth, intrinsicHeight);
     return CGSizeMake(intrinsicWidth, intrinsicHeight);
 }
 
@@ -449,6 +456,7 @@
 
     
     intrinsicWidth = [self intrinsicWidth:lineMaxWidth];
+    self.rw_size = CGSizeMake(intrinsicWidth, intrinsicHeight);
     return CGSizeMake(intrinsicWidth, intrinsicHeight);
 }
 

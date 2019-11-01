@@ -37,15 +37,6 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewFullSafeAreaStyle) {
     RWAutoTagViewFullSafeAreaStyle_AutoWidth, /** 自动根据控件布局来计算宽度 */
 };
 
-
-/* 🐱 autoTagButton 点击时间回调类型 */
-typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
-    /**< 默认  */
-    RWAutoTagViewItemClickBlockStyle_None = 0,
-    RWAutoTagViewItemClickBlockStyle_Delegate, /** 代理回调 */
-    RWAutoTagViewItemClickBlockStyle_Block  /** block 回调  */
-};
-
 //NS_DESIGNATED_INITIALIZER  NS_UNAVAILABLE
 
 @interface RWAutoTagView : UIView
@@ -91,8 +82,6 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
  */
 @property (nonatomic,assign) RWAutoTagViewAutoSortStyle autoSortStyle; /**< 排序样式 */
 
-@property (nonatomic,readonly) NSArray *buttons;/* 🐱 按钮存放数组 */
-
 /* 🐱 RWAutoTagButton 点击事件Block
  autoTagView 当前的RWAutoTagView
  index 表示点击的第几个RWAutoTagButton
@@ -124,12 +113,9 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
 - (NSInteger)numberOfAutoTagButtonInAutoTagView:(RWAutoTagView *)autoTagView;
 - (RWAutoTagButton *)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonForAtIndex:(NSInteger)index;
 
-
-
-
 @optional
+
 - (CGFloat)safeAreaLayoutMaxWidthInAutoTagView:(RWAutoTagView *)autoTagView;
-- (RWAutoTag *)autoTagView:(RWAutoTagView *)autoTagView ;
 
 
 @end
@@ -141,7 +127,6 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewItemClickBlockStyle) {
 
 @optional
 
-- (void)autoTagView:(RWAutoTagView *)autoTagView autoLayoutAutoTagButtonAtIndex:(NSInteger )index;
 - (void)autoTagView:(RWAutoTagView *)autoTagView didSelectAutoTagButtonAtIndex:(NSInteger )index;
 
 
