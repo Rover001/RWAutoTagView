@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    RWAutoTagView *autoTagView = [RWAutoTagView autoTagViewWithAutoSortStyle:RWAutoTagViewAutoSortStyleNormal];
+    RWAutoTagView *autoTagView = [[RWAutoTagView alloc]initAutoTagViewWithLineStyle:RWAutoTagViewLineStyle_DynamicMulti];
         autoTagView.dataSource = self;
         autoTagView.delegate = self;
         autoTagView.insets = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -28,7 +28,6 @@
         autoTagView.rw_y  = 40.0f;
     //    [autoTagView layoutSubviews];
         [self.view addSubview:autoTagView];
-        NSLog(@"%ld",(long)autoTagView.autoSortStyle);
         NSLog(@"%@",NSStringFromCGSize(autoTagView.intrinsicContentSize));
     //    [autoTagView reloadData];
         autoTagView.autoTagButtonClickBlock = ^(RWAutoTagView * _Nonnull autoTagView, NSInteger index) {
