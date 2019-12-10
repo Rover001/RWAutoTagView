@@ -79,10 +79,13 @@
        if (self.dataSource && [self.dataSource respondsToSelector:@selector(autoTagView:autoTagButtonForAtIndex:)]) {
            RWAutoTagButton *autoTagButton = [self.dataSource autoTagView:self autoTagButtonForAtIndex:i];
            autoTagButton.tag = i+1000;
+           /*  测试使用
            autoTagButton.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
            autoTagButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
            autoTagButton.titleEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
-//           autoTagButton.lineitemSpacing = 10.0f;
+           autoTagButton.lineitemSpacing = 10.0f;
+            */
+
            autoTagButton.safeAreaLayoutMaxWidth = self.safeAreaLayoutMaxWidth - self.insets.left - self.insets.right;
            if (self.dataSource && [self.dataSource respondsToSelector:@selector(safeAreaLayoutMaxWidthInAutoTagView:)]) {
                CGFloat safeAreaLayoutMaxWidth = [self.dataSource safeAreaLayoutMaxWidthInAutoTagView:self];
