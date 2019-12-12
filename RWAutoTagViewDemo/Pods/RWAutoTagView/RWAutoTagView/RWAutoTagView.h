@@ -178,7 +178,7 @@ typedef NS_ENUM(NSInteger,RWAutoTagViewFullSafeAreaStyle) {
  width:代理返回宽度
  宽度不能超过最大显示宽度 */
 - (CGFloat)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonWidthForAtIndex:(NSInteger)index;
-/* 🐱 返回平分标签数量 */
+/* 🐱 返回平分标签数量 自动计算宽度 不会使用代理'- (CGFloat)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonWidthForAtIndex:(NSInteger)index'返回值*/
 - (NSInteger)equallyNumberOfAutoTagButtonInautoTagView:(RWAutoTagView *)autoTagView;
 @end
 

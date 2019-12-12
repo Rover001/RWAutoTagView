@@ -484,7 +484,7 @@
             if (self.imageStyle == RWAutoTagImageEdgeInsetStyle_Top) {/* 🐱 图片在上边 */
                 image_Y = [self getInsetTop] + [self getImageInsetTop];
                 label_Y = image_Y +image_Height + [self getImageInsetBottom] +lineitemSpacing + [self getTextInsetTop];
-                
+                label_Width = intrinsicWidth;
                 if (intrinsicWidth < ( MAX(maxTextWidth, maxImageWidth) + lineInsets) ) {
                     if (maxTextWidth > maxImageWidth) {
                         label_Width = intrinsicWidth - lineInsets - label_lineInsets;
@@ -495,6 +495,7 @@
                 
                 label_Y = [self getInsetTop] + [self getTextInsetTop];
                 image_Y = label_Y +label_Height + [self getTextInsetBottom] +lineitemSpacing + [self getImageInsetTop];
+                label_Width = intrinsicWidth;
                 if (intrinsicWidth < ( MAX(maxTextWidth, maxImageWidth) + lineInsets) ) {
                     if (maxTextWidth > maxImageWidth) {
                         label_Width = intrinsicWidth - lineInsets - label_lineInsets;

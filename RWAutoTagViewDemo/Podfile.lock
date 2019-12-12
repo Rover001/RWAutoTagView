@@ -1,16 +1,16 @@
 PODS:
-  - RWAutoTagView (0.1.4)
+  - RWAutoTagView (0.1.5)
 
 DEPENDENCIES:
-  - RWAutoTagView (~> 0.1.4)
+  - RWAutoTagView (~> 0.1.5)
 
 SPEC REPOS:
   trunk:
     - RWAutoTagView
 
 SPEC CHECKSUMS:
-  RWAutoTagView: 0bcb08af6a82770ad9dac82cdf18274c6c184982
+  RWAutoTagView: 82205a3ebc3caa19089e8e94de8df2a0e5afbac4
 
-PODFILE CHECKSUM: 528feb6fee3c2c86b491410fa50c608f98cb1c2b
+PODFILE CHECKSUM: 7d00f677b50d2b742a35545a5f404f195c9b1bc5
 
 COCOAPODS: 1.8.0

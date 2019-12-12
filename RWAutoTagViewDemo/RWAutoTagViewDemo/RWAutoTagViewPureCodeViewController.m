@@ -59,7 +59,7 @@
     self.fullButton = self.full;
     NSLog(@"viewDidLoad = %f",self.view.frame.size.width);
     self.navigationItem.title = @"纯代码使用介绍以及效果";
-    RWAutoTagView *autoTagView = [RWAutoTagView autoTagViewWithAutoSortStyle:RWAutoTagViewAutoSortStyleNormal];
+    RWAutoTagView *autoTagView = [[RWAutoTagView alloc]initAutoTagViewWithLineStyle:RWAutoTagViewLineStyle_DynamicFixedEquallyMulti];
     autoTagView.dataSource = self;
     autoTagView.delegate = self;
     autoTagView.insets = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -78,7 +78,7 @@
     if (!sender.selected) {
         sender.selected = !sender.selected;
         [self reloadSortButton:sender];
-        self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleNormal;
+//        self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleNormal;
         self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
     }
 }
@@ -86,7 +86,7 @@
     if (!sender.selected) {
         sender.selected = !sender.selected;
         [self reloadSortButton:sender];
-        self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleDescending;
+//        self.autoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleDescending;
         self.backView_Constraint_Height.constant = self.autoTagView.intrinsicContentSize.height;
     }
 }
@@ -137,38 +137,58 @@
 
 
 #pragma mark - RWAutoTagViewDataSource
+//- (NSInteger)numberOfAutoTagButtonInAutoTagView:(RWAutoTagView *)autoTagView {
+//    return 6;
+//}
+//
+//- (RWAutoTagButton *)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonForAtIndex:(NSInteger)index {
+//    NSString *text = @"图文结合";
+//    RWAutoTagStyle autoTagStyle = RWAutoTagStyle_Mingle;
+//    if (index == 0) {
+//        text = @"只有图片";
+//        autoTagStyle = RWAutoTagStyle_Image;
+//    } else if (index == 1) {
+//        autoTagStyle = RWAutoTagStyle_Text;
+//        text = @"只有文字只有文字只有文字";
+//    }
+//    RWAutoTag *autoTag = [RWAutoTag autoTagWithTagStyle:autoTagStyle];
+//    if (autoTagStyle == RWAutoTagStyle_Mingle) {
+//        RWAutoTagImageEdgeInsetStyle imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Top;
+//        text = @"图文结合,图在上面";
+//        if (index == 2) {
+//            imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Left;
+//            text = @"图文结合,图在左边图文结合,图在左边图文结合,图在左边图文结合,图在左边";
+//        } else if (index == 3) {
+//            imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Right;
+//            text = @"图文结合,图在右边";
+//        } else if (index == 4) {
+//            imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Bottom;
+//            text = @"图文结合,图在下边图文结合,图在左边图文结合,图在左边图文结合,图在左边";
+//        }
+//        autoTag.imageEdgeInsetStyle = imageEdgeInsetStyle;
+//    }
+//    autoTag.text = text;
+//    return [RWAutoTagButton autoTagButtonWithAutoTag:autoTag];
+//}
+
+
 - (NSInteger)numberOfAutoTagButtonInAutoTagView:(RWAutoTagView *)autoTagView {
-    return 6;
+    return 2;
+}
+
+- (NSInteger)equallyNumberOfAutoTagButtonInautoTagView:(RWAutoTagView *)autoTagView {
+    return 2;
 }
 
 - (RWAutoTagButton *)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonForAtIndex:(NSInteger)index {
-    NSString *text = @"图文结合";
-    RWAutoTagStyle autoTagStyle = RWAutoTagStyle_Mingle;
-    if (index == 0) {
-        text = @"只有图片";
-        autoTagStyle = RWAutoTagStyle_Image;
-    } else if (index == 1) {
-        autoTagStyle = RWAutoTagStyle_Text;
-        text = @"只有文字只有文字只有文字";
-    }
-    RWAutoTag *autoTag = [RWAutoTag autoTagWithTagStyle:autoTagStyle];
-    if (autoTagStyle == RWAutoTagStyle_Mingle) {
-        RWAutoTagImageEdgeInsetStyle imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Top;
-        text = @"图文结合,图在上面";
-        if (index == 2) {
-            imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Left;
-            text = @"图文结合,图在左边图文结合,图在左边图文结合,图在左边图文结合,图在左边";
-        } else if (index == 3) {
-            imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Right;
-            text = @"图文结合,图在右边";
-        } else if (index == 4) {
-            imageEdgeInsetStyle = RWAutoTagImageEdgeInsetStyle_Bottom;
-            text = @"图文结合,图在下边图文结合,图在左边图文结合,图在左边图文结合,图在左边";
-        }
-        autoTag.imageEdgeInsetStyle = imageEdgeInsetStyle;
-    }
-    autoTag.text = text;
-    return [RWAutoTagButton autoTagButtonWithAutoTag:autoTag];
+    RWAutoTagButton *autoTagButton = [RWAutoTagButton buttonWithType:UIButtonTypeCustom];
+    autoTagButton.autoTagButtonStyle = RWAutoTagButtonStyle_Text;
+    [autoTagButton setTitle:@"测试一下" forState:UIControlStateNormal];
+    autoTagButton.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    [autoTagButton setTitle:@"测试一下" forState:UIControlStateHighlighted];
+    autoTagButton.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    
+    return autoTagButton;
 }
 
 #pragma mark - RWAutoTagViewDelegate

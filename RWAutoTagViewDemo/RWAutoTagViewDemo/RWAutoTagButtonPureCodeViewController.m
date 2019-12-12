@@ -74,7 +74,7 @@
     if (!sender.selected) {
         sender.selected = !sender.selected;
         [self reloadImageClickButton:sender];
-        self.autoTagButton.imageEdgeInsetStyle = RWAutoTagButtonImageEdgeInsetStyleLeft;
+//        self.autoTagButton.imageStyle = RWAutoTagButtonImageEdgeInsetStyleLeft;
          [self.autoTagButton setImage:[UIImage imageNamed:@"comment_selected"] forState:UIControlStateNormal];
         [self.autoTagButton setTitle:@"图片在左边" forState:UIControlStateNormal];
     }
@@ -83,7 +83,7 @@
     if (!sender.selected) {
        sender.selected = !sender.selected;
        [self reloadImageClickButton:sender];
-       self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleRight;
+//       self.autoTagButton.imageStyle =RWAutoTagButtonImageEdgeInsetStyleRight;
        [self.autoTagButton setTitle:@"图片在右边" forState:UIControlStateNormal];
    }
 }
@@ -91,7 +91,7 @@
     if (!sender.selected) {
         sender.selected = !sender.selected;
         [self reloadImageClickButton:sender];
-        self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleTop;
+//        self.autoTagButton.imageStyle =RWAutoTagButtonImageEdgeInsetStyleTop;
         [self.autoTagButton setTitle:@"图片在上边" forState:UIControlStateNormal];
     }
     
@@ -101,7 +101,7 @@
    if (!sender.selected) {
         sender.selected = !sender.selected;
         [self reloadImageClickButton:sender];
-         self.autoTagButton.imageEdgeInsetStyle =RWAutoTagButtonImageEdgeInsetStyleBottom;
+//         self.autoTagButton.imageStyle =RWAutoTagButtonImageEdgeInsetStyleBottom;
         [self.autoTagButton setImage:[UIImage imageNamed:@"comment_selected"] forState:UIControlStateNormal];
         [self.autoTagButton setTitle:@"图片在下边" forState:UIControlStateNormal];
     }

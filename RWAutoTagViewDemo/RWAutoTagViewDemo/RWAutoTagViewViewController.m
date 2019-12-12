@@ -73,7 +73,7 @@
     if (!sender.selected) {
         sender.selected = !sender.selected;
         [self reloadSortButton:sender];
-        self.xib_AutoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleNormal;
+//        self.xib_AutoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleNormal;
         self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
     }
 }
@@ -81,7 +81,7 @@
     if (!sender.selected) {
         sender.selected = !sender.selected;
         [self reloadSortButton:sender];
-        self.xib_AutoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleDescending;
+//        self.xib_AutoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleDescending;
         self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
     }
 }
@@ -90,7 +90,7 @@
     if (!sender.selected) {
        sender.selected = !sender.selected;
        [self reloadSortButton:sender];
-       self.xib_AutoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleAscending;
+//       self.xib_AutoTagView.autoSortStyle = RWAutoTagViewAutoSortStyleAscending;
        self.autoTagView_BackView_Height.constant = self.xib_AutoTagView.intrinsicContentSize.height;
    }
     
