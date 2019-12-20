@@ -9,12 +9,17 @@
 #ifndef RWAutoTagHeader_h
 #define RWAutoTagHeader_h
 
+#define RW_AUTOTAG_VERSION @"0.1.6"
+#define RW_UPDATE_TIMES 1
+
 #import "UIView+RWExtension.h"
 #import "NSBundle+RWAutoTag.h"
 
 #import "RWAutoTagButton.h"
 #import "RWAutoTag.h"
 #import "RWAutoTagView.h"
+
+
 
 
 #endif /* RWAutoTagHeader_h */

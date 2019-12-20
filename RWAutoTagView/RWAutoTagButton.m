@@ -42,35 +42,33 @@
 
 
 - (void)initAttribute {
-    self.lineitemSpacing = 0.0f;
-    self.safeAreaLayoutMaxWidth = [UIScreen mainScreen].bounds.size.width;
-    self.autoTagButtonStyle = RWAutoTagButtonStyle_Text;
-    self.imageStyle =  RWAutoTagButtonImageStyle_Left;
-    self.autoTag = [[RWAutoTag alloc]init];
-    self.backgroundColor = [UIColor redColor];
-    self.imageView.backgroundColor = [UIColor yellowColor];
-    self.titleLabel.backgroundColor = [UIColor blueColor];
+    self.rw_itemSpacing = 0.0f;
+    self.rw_safeAreaLayoutMaxWidth = [UIScreen mainScreen].bounds.size.width;
+    self.rw_autoTagButtonStyle = RWAutoTagButtonStyle_Text;
+    self.rw_imageStyle =  RWAutoTagButtonImageStyle_Left;
     self.clipsToBounds = YES;
-    self.isDynamicFixed = NO;
-    self.dynamicFixedSize = CGSizeZero;
+    self.rw_isDynamicFixed = NO;
+    self.rw_dynamicFixedSize = CGSizeZero;
 }
 
 - (void)initAutoButtonSubViews {
     
-    switch (self.autoTagButtonStyle) {
+    switch (self.rw_autoTagButtonStyle) {
         case RWAutoTagButtonStyle_Text:
 //            [self setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
             break;
             
         case RWAutoTagButtonStyle_Image:
             [self setAttributedTitle:[[NSAttributedString alloc]init] forState:UIControlStateNormal];
-            [self setTitle:@""forState:UIControlStateNormal];
+            [self setTitle:@"" forState:UIControlStateNormal];
             [self setImage:[NSBundle rw_autotagImage] forState:UIControlStateNormal];
+//            [self setImage:[NSBundle rw_autotagImage] forState:UIControlStateHighlighted];
             break;
             
         case RWAutoTagButtonStyle_Mingle:
         {
             [self setImage:[NSBundle rw_autotagImage] forState:UIControlStateNormal];
+//            [self setImage:[NSBundle rw_autotagImage] forState:UIControlStateHighlighted];
         }
             break;
         case RWAutoTagButtonStyle_Custom:
@@ -179,33 +177,48 @@
 
 #pragma mark - Set Attribute
 
-- (void)setImageStyle:(RWAutoTagButtonImageStyle)imageStyle {
-    if (_imageStyle != imageStyle) {
-        _imageStyle = imageStyle;
-        if (self.autoTagButtonStyle == RWAutoTagButtonStyle_Image ||
-            self.autoTagButtonStyle == RWAutoTagButtonStyle_Mingle) {
+- (void)setRw_imageStyle:(RWAutoTagButtonImageStyle)rw_imageStyle {
+    if (_rw_imageStyle != rw_imageStyle) {
+        _rw_imageStyle = rw_imageStyle;
+        if (self.rw_autoTagButtonStyle == RWAutoTagButtonStyle_Image ||
+            self.rw_autoTagButtonStyle == RWAutoTagButtonStyle_Mingle) {
             [self initAutoButtonSubViews];
             [self setNeedsLayout];
         }
     }
 }
 
-
-- (void)setAutoTagButtonStyle:(RWAutoTagButtonStyle)autoTagButtonStyle {
-    if (_autoTagButtonStyle != autoTagButtonStyle) {
-        _autoTagButtonStyle = autoTagButtonStyle;
+- (void)setRw_autoTagButtonStyle:(RWAutoTagButtonStyle)rw_autoTagButtonStyle {
+    if (_rw_autoTagButtonStyle != rw_autoTagButtonStyle) {
+        _rw_autoTagButtonStyle = rw_autoTagButtonStyle;
         [self initAutoButtonSubViews];
         [self setNeedsLayout];
-    }
+       }
 }
 
-- (void)setSafeAreaLayoutMaxWidth:(CGFloat)safeAreaLayoutMaxWidth {
-    if (_safeAreaLayoutMaxWidth != safeAreaLayoutMaxWidth) {
-        _safeAreaLayoutMaxWidth = safeAreaLayoutMaxWidth;
-        self.autoTag.safeAreaLayoutMaxWidth = safeAreaLayoutMaxWidth;
+- (void)setRw_safeAreaLayoutMaxWidth:(CGFloat)rw_safeAreaLayoutMaxWidth {
+    if (_rw_safeAreaLayoutMaxWidth != rw_safeAreaLayoutMaxWidth) {
+        _rw_safeAreaLayoutMaxWidth = rw_safeAreaLayoutMaxWidth;
         [self setNeedsLayout];
     }
 }
+
+
+- (void)setRw_itemSpacing:(CGFloat)rw_itemSpacing {
+    if (_rw_itemSpacing != rw_itemSpacing) {
+        _rw_itemSpacing = rw_itemSpacing;
+        [self setNeedsLayout];
+    }
+}
+
+- (void)setRw_isDynamicFixed:(BOOL)rw_isDynamicFixed {
+    if (_rw_isDynamicFixed != rw_isDynamicFixed) {
+        _rw_isDynamicFixed = rw_isDynamicFixed;
+        [self setNeedsLayout];
+    }
+}
+
+
 
 
 #pragma mark - layout contentSize
@@ -222,7 +235,7 @@
 - (CGSize)layoutContentSize {
     CGSize newSize = CGSizeMake(0, 0);
     
-    switch (self.autoTagButtonStyle) {
+    switch (self.rw_autoTagButtonStyle) {
         case RWAutoTagButtonStyle_Text:
             newSize = [self reloadAutoButtonStyle_Text];
             break;
@@ -250,32 +263,12 @@
 
 #pragma mark -- UIEdgeInsets
 
-- (CGFloat)getContentInsetsTop {return self.contentEdgeInsets.top;}
-- (CGFloat)getContentInsetsLeft {return self.contentEdgeInsets.left;}
-- (CGFloat)getContentInsetsRight {return self.contentEdgeInsets.right;}
-- (CGFloat)getContentInsetsBottom {return self.contentEdgeInsets.bottom;}
-
 - (CGFloat)getInsetTop {return self.contentEdgeInsets.top;}
 - (CGFloat)getInsetLeft {return self.contentEdgeInsets.left;}
 - (CGFloat)getInsetRight {return self.contentEdgeInsets.right;}
 - (CGFloat)getInsetBottom {return self.contentEdgeInsets.bottom;}
 
 #pragma mark -- UIImageView UIEdgeInsets CGSize
-
-- (CGFloat)getImageViewInsetsTop {return self.imageEdgeInsets.top;}
-- (CGFloat)getImageViewInsetsLeft {return self.imageEdgeInsets.left;}
-- (CGFloat)getImageViewInsetsRight {return self.imageEdgeInsets.right;}
-- (CGFloat)getImageViewInsetsBottom {return self.imageEdgeInsets.bottom;}
-- (CGFloat)getImageViewWidth {return self.currentImage.size.width;}
-- (CGFloat)getImageViewHeight {return self.currentImage.size.height;}
-- (CGFloat)getImageViewMaxHeight {
-    return [self getImageHeight] + [self getImageInsetTop] + [self getImageInsetBottom];
-}
-- (CGFloat)getImageViewMaxWidth {
-    return [self getImageViewWidth ] + [self getImageViewInsetsLeft] + [self getImageViewInsetsRight];
-}
-
-
 
 - (CGFloat)getImageInsetTop {return self.imageEdgeInsets.top;};
 - (CGFloat)getImageInsetLeft {return self.imageEdgeInsets.left;}
@@ -292,20 +285,6 @@
 
 
 #pragma mark -- UILabel UIEdgeInsets CGSize
-
-- (CGFloat)getLabelInsetsTop {return self.titleEdgeInsets.top;}
-- (CGFloat)getLabelInsetsLeft {return self.titleEdgeInsets.left;}
-- (CGFloat)getLabelInsetsRight {return self.titleEdgeInsets.right;}
-- (CGFloat)getLabelInsetsBottom {return self.titleEdgeInsets.bottom;}
-- (CGFloat)getLabelHeight {return self.titleLabel.intrinsicContentSize.height;}
-- (CGFloat)getLabelMaxHeight {
-    return [self getLabelHeight] + [self getLabelInsetsTop] + [self getLabelInsetsBottom];
-}
-- (CGFloat)getLabelWidth {return self.titleLabel.intrinsicContentSize.width;}
-- (CGFloat)getLabelMaxWidth {
-    return [self getLabelWidth ] + [self getLabelInsetsLeft] + [self getLabelInsetsRight];
-}
-
 
 - (CGFloat)getTextInsetTop {return self.titleEdgeInsets.top;}
 - (CGFloat)getTextInsetLeft {return self.titleEdgeInsets.left;}
@@ -327,16 +306,20 @@
 
 - (CGSize)reloadAutoButtonStyle_Text {
 
-    CGFloat lineInsets = [self getInsetLeft] + [self getInsetRight];
-    CGFloat label_lineInsets = [self getTextInsetLeft] + [self getTextInsetRight];
+    CGFloat horizontal = [self getInsetLeft] + [self getInsetRight];
+    CGFloat label_horizontal = [self getTextInsetLeft] + [self getTextInsetRight];
+    CGFloat vertical = [self getInsetTop] + [self getInsetBottom];
+    CGFloat label_vertical = [self getTextInsetTop] + [self getTextInsetBottom];
     
-    CGFloat intrinsicHeight = [self getInsetTop] + [self getInsetBottom];
-    CGFloat intrinsicWidth = lineInsets;
-    
+    CGFloat intrinsicHeight = vertical;
+    CGFloat intrinsicWidth = horizontal;
     
     intrinsicHeight +=  [self getMaxTextHeight];
-    if (self.isDynamicFixed) {
-        intrinsicWidth = self.dynamicFixedSize.width;
+    if (self.rw_isDynamicFixed) {
+        intrinsicWidth = self.rw_dynamicFixedSize.width;
+        if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
+            intrinsicHeight = self.rw_dynamicFixedSize.height;
+        }
     } else {
         intrinsicWidth += [self getMaxTextWidth];
     }
@@ -346,15 +329,23 @@
     CGFloat label_Width = [self getTextWidth];
     CGFloat label_Height = [self getTextHeight];
     
-    if (intrinsicWidth >=self.safeAreaLayoutMaxWidth) {
-        label_Width = intrinsicWidth - lineInsets - label_lineInsets;
+    if (intrinsicWidth >=self.rw_safeAreaLayoutMaxWidth) {
+        label_Width = intrinsicWidth - horizontal - label_horizontal;
     }
     
-    if (self.isDynamicFixed) {
-        if (label_Width > self.dynamicFixedSize.width) {
-            label_Width = self.dynamicFixedSize.width - lineInsets - label_lineInsets;
+    if (self.rw_isDynamicFixed) {
+        if (label_Width > self.rw_dynamicFixedSize.width) {
+            label_Width = self.rw_dynamicFixedSize.width - horizontal - label_horizontal;
         }
         label_X = (intrinsicWidth - label_Width)/2;
+        if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
+//            label_Y = (intrinsicHeight - label_Height)/2;
+            double new_label_height = intrinsicHeight - vertical - label_vertical;
+            if (new_label_height > label_Height) {
+                //label_Height = new_label_height;
+                label_Y += (new_label_height - label_Height)/2;
+            }
+        }
     }
     
     self.titleLabel.frame = CGRectMake(label_X, label_Y,label_Width, label_Height);
@@ -367,17 +358,23 @@
 #pragma mark -- reloadAutoButtonStyle_Image 计算纯图片
 
 - (CGSize)reloadAutoButtonStyle_Image {
+//    self.rw_imageStyle = RWAutoTagButtonImageStyle_Center;
+    CGFloat horizontal = [self getInsetLeft] + [self getInsetRight];
+    CGFloat image_horizontal = [self getImageInsetLeft] + [self getImageInsetRight];
+    
+    CGFloat vertical = [self getInsetTop] + [self getInsetBottom];
+    CGFloat image_vertical = [self getImageInsetTop] + [self getImageInsetBottom];
     
     
-    CGFloat lineInsets = [self getInsetLeft] + [self getInsetRight];
-    CGFloat image_lineInsets = [self getImageInsetLeft] + [self getImageInsetRight];
-    
-    CGFloat intrinsicHeight = [self getContentInsetsTop] + [self getContentInsetsBottom];
-    CGFloat intrinsicWidth = lineInsets;
+    CGFloat intrinsicHeight = vertical;
+    CGFloat intrinsicWidth = horizontal;
     
     intrinsicHeight +=  [self getMaxImageHeight];
-    if (self.isDynamicFixed) {
-        intrinsicWidth = self.dynamicFixedSize.width;
+    if (self.rw_isDynamicFixed) {
+        intrinsicWidth = self.rw_dynamicFixedSize.width;
+        if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
+            intrinsicHeight = self.rw_dynamicFixedSize.height;
+        }
     } else {
         intrinsicWidth += [self getMaxImageWidth];
     }
@@ -389,16 +386,20 @@
     CGFloat image_Y = [self getInsetTop] + [self getImageInsetTop];
     CGFloat image_Width = [self getImageWidth];
     CGFloat image_Height = [self getImageHeight];
+    CGFloat aspectRatio = image_Width/image_Height;
     
-    if (intrinsicWidth >=self.safeAreaLayoutMaxWidth) {
-           image_Width = intrinsicWidth - lineInsets - image_lineInsets;
-       }
     
-    if (self.isDynamicFixed) {
-        if (image_Width > self.dynamicFixedSize.width) {
-            image_Width = self.dynamicFixedSize.width;
+    
+    if (self.rw_isDynamicFixed) {
+        image_Width = intrinsicWidth - horizontal - image_horizontal;
+        if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
+            image_Height = self.rw_dynamicFixedSize.height - vertical - image_vertical;
         }
-        image_X = (intrinsicWidth - image_Width)/2;
+    } else {
+        if (image_Width +horizontal + image_horizontal >= intrinsicWidth) {
+            image_Width = intrinsicWidth - horizontal - image_horizontal;
+            image_Height = image_Width/aspectRatio;
+        }
     }
     
     self.imageView.frame = CGRectMake(image_X, image_Y,image_Width,image_Height);
@@ -410,45 +411,48 @@
 
 - (CGSize)reloadAutoButtonStyle_Mingle {
     
-    CGFloat lineitemSpacing = self.lineitemSpacing;
+    CGFloat rw_itemSpacing = self.rw_itemSpacing;
     CGFloat intrinsicHeight = [self getInsetTop] + [self getInsetBottom];
     CGFloat intrinsicWidth = [self getInsetLeft] + [self getInsetRight];
     CGFloat image_X = 0.0f;
     CGFloat image_Y = 0.0f;
     CGFloat image_Width = [self getImageWidth];
     CGFloat image_Height = [self getImageHeight];
+    CGFloat image_AspectRatio = image_Width/image_Height;
     CGFloat label_X = 0.0f;
     CGFloat label_Y = 0.0f;
     CGFloat label_Width = [self getTextWidth];
     CGFloat label_Height = [self getTextHeight];
    
     
-    CGFloat lineInsets = [self getInsetLeft] + [self getInsetRight];
-    CGFloat image_lineInsets = [self getImageInsetLeft] + [self getImageInsetRight];
-    CGFloat label_lineInsets = [self getTextInsetLeft] + [self getTextInsetRight];
+    CGFloat horizontal = [self getInsetLeft] + [self getInsetRight];
+    CGFloat image_horizontal = [self getImageInsetLeft] + [self getImageInsetRight];
+    CGFloat label_horizontal = [self getTextInsetLeft] + [self getTextInsetRight];
+    CGFloat vertical = [self getInsetTop] + [self getInsetBottom];
+    CGFloat image_vertical = [self getImageInsetTop] + [self getImageInsetBottom];
+//    CGFloat label_vertical = [self getTextInsetTop] + [self getTextInsetBottom];
    
     CGFloat maxImageHeight = [self getMaxImageHeight];
     CGFloat maxImageWidth = [self getMaxImageWidth];
     CGFloat maxTextHeight = [self getMaxTextHeight];
     CGFloat maxTextWidth = [self getMaxTextWidth];
     
-    if (self.isDynamicFixed) {
-        if (image_Width > self.dynamicFixedSize.width) {
-            image_Width = self.dynamicFixedSize.width - image_lineInsets - lineInsets;
+    if (self.rw_isDynamicFixed) {
+        if (image_Width > self.rw_dynamicFixedSize.width) {
+            image_Width = self.rw_dynamicFixedSize.width - image_horizontal - horizontal;
+        }
+        if (label_Width > self.rw_dynamicFixedSize.width) {
+            label_Width = self.rw_dynamicFixedSize.width -label_horizontal - horizontal;
         }
 
-        if (label_Width > self.dynamicFixedSize.width) {
-            label_Width = self.dynamicFixedSize.width -label_lineInsets - lineInsets;
+        if (maxImageWidth > self.rw_dynamicFixedSize.width) {
+            maxImageWidth = self.rw_dynamicFixedSize.width - horizontal;
+            image_Width = maxImageWidth - image_horizontal;
         }
 
-        if (maxImageWidth > self.dynamicFixedSize.width) {
-            maxImageWidth = self.dynamicFixedSize.width - lineInsets;
-            image_Width = maxImageWidth - image_lineInsets;
-        }
-
-        if (maxTextWidth > self.dynamicFixedSize.width) {
-            maxTextWidth = self.dynamicFixedSize.width - lineInsets;
-            label_Width = maxTextWidth - label_lineInsets;
+        if (maxTextWidth > self.rw_dynamicFixedSize.width) {
+            maxTextWidth = self.rw_dynamicFixedSize.width - horizontal;
+            label_Width = maxTextWidth - label_horizontal;
         }
     }
     
@@ -457,13 +461,14 @@
     
     
     
-    switch (self.imageStyle) {
+    switch (self.rw_imageStyle) {
         case RWAutoTagImageEdgeInsetStyle_Top:
         case RWAutoTagImageEdgeInsetStyle_Bottom:{
-            intrinsicHeight += maxImageHeight + maxTextHeight +lineitemSpacing;
+            intrinsicHeight += maxImageHeight + maxTextHeight +rw_itemSpacing;
             
-            if (self.isDynamicFixed) {
-                    intrinsicWidth = self.dynamicFixedSize.width;
+            if (self.rw_isDynamicFixed) {
+                    intrinsicWidth = self.rw_dynamicFixedSize.width;
+                    intrinsicHeight = self.rw_dynamicFixedSize.height;
                } else {
                    intrinsicWidth += MAX(maxImageWidth, maxTextWidth);
                }
@@ -481,25 +486,33 @@
                  image_X = [self getInsetLeft] + [self getImageInsetLeft];
              }
             
-            if (self.imageStyle == RWAutoTagImageEdgeInsetStyle_Top) {/* 🐱 图片在上边 */
+            if (self.rw_imageStyle == RWAutoTagImageEdgeInsetStyle_Top) {/* 🐱 图片在上边 */
                 image_Y = [self getInsetTop] + [self getImageInsetTop];
-                label_Y = image_Y +image_Height + [self getImageInsetBottom] +lineitemSpacing + [self getTextInsetTop];
+                label_Y = image_Y +image_Height + [self getImageInsetBottom] +rw_itemSpacing + [self getTextInsetTop];
                 label_Width = intrinsicWidth;
-                if (intrinsicWidth < ( MAX(maxTextWidth, maxImageWidth) + lineInsets) ) {
+                if (intrinsicWidth < ( MAX(maxTextWidth, maxImageWidth) + horizontal) ) {
                     if (maxTextWidth > maxImageWidth) {
-                        label_Width = intrinsicWidth - lineInsets - label_lineInsets;
+                        label_Width = intrinsicWidth - horizontal - label_horizontal;
                     }
                }
                 
-            } else if (self.imageStyle == RWAutoTagImageEdgeInsetStyle_Bottom) {
+                if (self.rw_isDynamicFixed) {
+                    label_Width = MAX(intrinsicWidth - horizontal - label_horizontal, 0.0f);
+                }
+                
+            } else if (self.rw_imageStyle == RWAutoTagImageEdgeInsetStyle_Bottom) {
                 
                 label_Y = [self getInsetTop] + [self getTextInsetTop];
-                image_Y = label_Y +label_Height + [self getTextInsetBottom] +lineitemSpacing + [self getImageInsetTop];
+                image_Y = label_Y +label_Height + [self getTextInsetBottom] +rw_itemSpacing + [self getImageInsetTop];
                 label_Width = intrinsicWidth;
-                if (intrinsicWidth < ( MAX(maxTextWidth, maxImageWidth) + lineInsets) ) {
+                if (intrinsicWidth < ( MAX(maxTextWidth, maxImageWidth) + horizontal) ) {
                     if (maxTextWidth > maxImageWidth) {
-                        label_Width = intrinsicWidth - lineInsets - label_lineInsets;
+                        label_Width = intrinsicWidth - horizontal - label_horizontal;
                     }
+                }
+                
+                if (self.rw_isDynamicFixed) {
+                    label_Width = MAX(intrinsicWidth - horizontal - label_horizontal, 0.0f);
                 }
             }
         }
@@ -509,10 +522,11 @@
         case RWAutoTagImageEdgeInsetStyle_Right: {
             
             intrinsicHeight += MAX(maxImageHeight, maxTextHeight);
-            if (self.isDynamicFixed) {
-                 intrinsicWidth = self.dynamicFixedSize.width;
+            if (self.rw_isDynamicFixed) {
+                intrinsicWidth = self.rw_dynamicFixedSize.width;
+                intrinsicHeight = self.rw_dynamicFixedSize.height;
             } else {
-                intrinsicWidth += MIN(self.safeAreaLayoutMaxWidth - lineInsets, maxImageWidth + maxTextWidth + lineitemSpacing);
+                intrinsicWidth += MIN(self.rw_safeAreaLayoutMaxWidth - horizontal, maxImageWidth + maxTextWidth + rw_itemSpacing);
             }
             
             intrinsicWidth = [self initSafeAreaWidth:intrinsicWidth];
@@ -528,50 +542,73 @@
            }
             
             
-            if (self.imageStyle == RWAutoTagImageEdgeInsetStyle_Left) {
+            if (self.rw_imageStyle == RWAutoTagImageEdgeInsetStyle_Left) {
                 
                 image_X = [self getInsetLeft] + [self getImageInsetLeft];
-                label_X = image_X +image_Width +lineitemSpacing +[self getImageInsetRight] +[self getTextInsetLeft];
+                label_X = image_X +image_Width +rw_itemSpacing +[self getImageInsetRight] +[self getTextInsetLeft];
                 
                 if (intrinsicWidth <=(label_Width + label_X + [self getInsetRight] + [self getTextInsetRight])) {
                     label_Width = intrinsicWidth - label_X - [self getInsetRight] -  [self getTextInsetRight];
                    }
                 
-                if (self.isDynamicFixed) {
-                    image_X = ((self.dynamicFixedSize.width - lineInsets) - (image_Width +label_Width) - lineitemSpacing)/2;
-                    label_X = image_X +image_Width +lineitemSpacing + image_lineInsets;
-                    if (intrinsicWidth <= (maxImageWidth + maxTextWidth + lineInsets +lineitemSpacing)) {
+                if (self.rw_isDynamicFixed) {
+                    
+                    /*  固定宽 动态高  */
+                    image_X = ((intrinsicWidth - horizontal) - (image_Width +label_Width) - rw_itemSpacing)/2;
+                    label_X = image_X +image_Width +rw_itemSpacing + image_horizontal;
+                    if (intrinsicWidth <= (maxImageWidth + maxTextWidth + horizontal +rw_itemSpacing)) {
                         image_X = [self getInsetLeft] + [self getImageInsetLeft];
-                        if (maxImageWidth >= (intrinsicWidth- lineInsets)) {
+                        if (maxImageWidth >= (intrinsicWidth- horizontal)) {
                             image_X = (intrinsicWidth - image_Width)/2;
                         }
-                        label_X = image_X +image_Width +lineitemSpacing + [self getImageInsetRight] + [self getTextInsetLeft];
+                        label_X = image_X +image_Width +rw_itemSpacing + [self getImageInsetRight] + [self getTextInsetLeft];
                         label_Width = intrinsicWidth - label_X - [self getInsetRight] -  [self getTextInsetRight];
                         if (label_Width <0) {
                             label_Width = 0;
                         }
-
-                        
-                                            }
+                    }
+                    
+                    
+                    /*  固定宽 固定高  */
+                    if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
+                        double new_fixedSize_height = intrinsicHeight - vertical - image_vertical;
+                        image_Height = new_fixedSize_height;
+                        image_Width = image_AspectRatio *image_Height;
+                        label_X = image_X + image_Width + image_horizontal + rw_itemSpacing;
+                        if (new_fixedSize_height > label_Height) {
+                           label_Y = (new_fixedSize_height - label_Height)/2 + [self getTextInsetTop];
+                        }
+                        label_Width = MAX(intrinsicWidth - horizontal - image_horizontal - label_horizontal - image_Width - rw_itemSpacing, 0.0f);
+                    }
                 }
-            } else if (self.imageStyle == RWAutoTagImageEdgeInsetStyle_Right) {
+            } else if (self.rw_imageStyle == RWAutoTagImageEdgeInsetStyle_Right) {
                 label_X = [self getInsetLeft] + [self getTextInsetLeft];
                 image_X =  intrinsicWidth - image_Width - [self getInsetRight] - [self getImageInsetRight];
-                label_Width = image_X - label_X -  lineitemSpacing - [self getTextInsetRight] - [self getImageInsetLeft];
-                if (self.isDynamicFixed) {
-                   label_X = ((self.dynamicFixedSize.width - lineInsets) - (image_Width +label_Width) - lineitemSpacing)/2;
-                   image_X = label_X +label_Width +lineitemSpacing;
-                    if (intrinsicWidth <= (maxImageWidth + maxTextWidth + lineitemSpacing + lineInsets) ) {
+                label_Width = image_X - label_X -  rw_itemSpacing - [self getTextInsetRight] - [self getImageInsetLeft];
+                if (self.rw_isDynamicFixed) {
+                    /*  固定宽 动态高  */
+                   label_X = ((self.rw_dynamicFixedSize.width - horizontal) - (image_Width +label_Width) - rw_itemSpacing)/2;
+                   image_X = label_X +label_Width +rw_itemSpacing;
+                    if (intrinsicWidth <= (maxImageWidth + maxTextWidth + rw_itemSpacing + horizontal) ) {
                         image_X =  intrinsicWidth - image_Width - [self getInsetRight] - [self getImageInsetRight];
-                        if (maxImageWidth >=(intrinsicWidth- lineInsets)) {
+                        if (maxImageWidth >=(intrinsicWidth- horizontal)) {
                             image_X  = (intrinsicWidth - image_Width)/2;
                         }
                         
                         label_X = [self getInsetLeft] +[self getTextInsetLeft];
-                        label_Width = image_X - label_X -  lineitemSpacing - [self getTextInsetRight] - [self getImageInsetLeft];
-                        if (label_Width <0) {
-                            label_Width = 0;
+                        label_Width = MAX(image_X - label_X -  rw_itemSpacing - [self getTextInsetRight] - [self getImageInsetLeft], 0.0f);
+                    }
+                    
+                    /*  固定宽 固定高  */
+                    if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
+                        double new_fixedSize_height = intrinsicHeight - vertical - image_vertical;
+                        image_Height = new_fixedSize_height;
+                        image_Width = image_AspectRatio *image_Height;
+                        if (new_fixedSize_height > label_Height) {
+                           label_Y = (new_fixedSize_height - label_Height)/2 + [self getTextInsetTop];
                         }
+                        label_Width = MAX(intrinsicWidth - horizontal - image_horizontal - label_horizontal - image_Width - rw_itemSpacing, 0.0f);
+                        image_X = intrinsicWidth - image_Width - [self getInsetRight] - [self getImageInsetRight];
                     }
                }
             }
@@ -585,9 +622,13 @@
     
     self.imageView.frame = CGRectMake(image_X, image_Y,image_Width,image_Height);
     self.titleLabel.frame = CGRectMake(label_X, label_Y,label_Width, label_Height);
-    if (self.isDynamicFixed) {
+    if (self.rw_isDynamicFixed) {
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
+            intrinsicHeight = self.rw_dynamicFixedSize.height;
+        }
     }
+    
     
    return CGSizeMake(intrinsicWidth, intrinsicHeight);
 }
@@ -595,7 +636,7 @@
 
 #pragma mark --- CustomAutoTagStyle_Custom Frame
 
-- (CGSize)reloadAutoButtonStyle_Custom{
+- (CGSize)reloadAutoButtonStyle_Custom {
     self.imageView.frame = CGRectMake(0, 0,0,0);
     self.titleLabel.frame = CGRectMake(0, 0,0, 0);
    return CGSizeMake(0, 0);
@@ -605,7 +646,7 @@
     
     CGSize newSize = CGSizeMake(0, 0);
     
-    switch (self.autoTagButtonStyle) {
+    switch (self.rw_autoTagButtonStyle) {
         case RWAutoTagButtonStyle_Text:
             newSize = [self reloadAutoButtonStyle_Text];
             break;
@@ -629,16 +670,8 @@
 }
 
 - (CGFloat)initSafeAreaWidth:(CGFloat)newIntrinsicWidth {
-    if (newIntrinsicWidth >=self.safeAreaLayoutMaxWidth) {
-        newIntrinsicWidth = self.safeAreaLayoutMaxWidth;
-    }
-    return newIntrinsicWidth;
-}
-
-- (CGFloat)intrinsicSafeWidth:(CGFloat)newIntrinsicWidth {
-    if (newIntrinsicWidth >=self.safeAreaLayoutMaxWidth) {
-        newIntrinsicWidth = self.safeAreaLayoutMaxWidth;
-        //- ([self getContentInsetsLeft] + [self getContentInsetsRight]);
+    if (newIntrinsicWidth >=self.rw_safeAreaLayoutMaxWidth) {
+        newIntrinsicWidth = self.rw_safeAreaLayoutMaxWidth;
     }
     return newIntrinsicWidth;
 }

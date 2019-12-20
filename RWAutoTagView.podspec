@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |spec|
   spec.name         = "RWAutoTagView"
-  spec.version      = "0.1.5"
+  spec.version      = "0.1.6"
   spec.summary      = "自定义标签管理"
   spec.homepage     = "https://blog.csdn.net/RoverWord/article/details/102827798"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
