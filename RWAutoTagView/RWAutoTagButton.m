@@ -7,7 +7,6 @@
 //
 
 #import "RWAutoTagButton.h"
-#import "RWAutoTag.h"
 #import "UIView+RWExtension.h"
 #import "NSBundle+RWAutoTag.h"
 
@@ -80,32 +79,6 @@
 
 
 
-- (RWAutoTagButtonStyle)getAutoButtonStyleInAutoTagStyle:(RWAutoTagStyle)autoTagStyle {
-    
-    RWAutoTagButtonStyle autoTagButtonStyle = RWAutoTagButtonStyle_Text;
-    switch (autoTagStyle) {
-        case RWAutoTagStyle_Text:
-            autoTagButtonStyle = RWAutoTagButtonStyle_Text;
-            break;
-            
-        case RWAutoTagStyle_Image:
-            autoTagButtonStyle = RWAutoTagButtonStyle_Image;
-            break;
-            
-        case RWAutoTagStyle_Mingle:
-            autoTagButtonStyle = RWAutoTagButtonStyle_Mingle;
-            break;
-            
-        case RWAutoTagStyle_Custom:
-            autoTagButtonStyle = RWAutoTagButtonStyle_Custom;
-            break;
-            
-        default:
-            break;
-    }
-    
-    return autoTagButtonStyle;
-}
 
 #pragma mark - Set Attribute
 
@@ -391,8 +364,8 @@
     
     
     switch (self.rw_imageStyle) {
-        case RWAutoTagImageEdgeInsetStyle_Top:
-        case RWAutoTagImageEdgeInsetStyle_Bottom:{
+        case RWAutoTagButtonImageStyle_Top:
+        case RWAutoTagButtonImageStyle_Bottom:{
             intrinsicHeight += maxImageHeight + maxTextHeight +rw_itemSpacing;
             
             if (self.rw_isDynamicFixed) {
@@ -417,7 +390,7 @@
                  image_X = [self getInsetLeft] + [self getImageInsetLeft];
              }
             
-            if (self.rw_imageStyle == RWAutoTagImageEdgeInsetStyle_Top) {/* 🐱 图片在上边 */
+            if (self.rw_imageStyle == RWAutoTagButtonImageStyle_Top) {/* 🐱 图片在上边 */
                 image_Y = [self getInsetTop] + [self getImageInsetTop];
                 label_Y = image_Y +image_Height + [self getImageInsetBottom] +rw_itemSpacing + [self getTextInsetTop];
                 label_Width = intrinsicWidth;
@@ -431,7 +404,7 @@
                     label_Width = MAX(intrinsicWidth - horizontal - label_horizontal, 0.0f);
                 }
                 
-            } else if (self.rw_imageStyle == RWAutoTagImageEdgeInsetStyle_Bottom) {
+            } else if (self.rw_imageStyle == RWAutoTagButtonImageStyle_Bottom) {
                 
                 label_Y = [self getInsetTop] + [self getTextInsetTop];
                 image_Y = label_Y +label_Height + [self getTextInsetBottom] +rw_itemSpacing + [self getImageInsetTop];
@@ -449,8 +422,8 @@
         }
             break;
             
-        case RWAutoTagImageEdgeInsetStyle_Left:
-        case RWAutoTagImageEdgeInsetStyle_Right: {
+        case RWAutoTagButtonImageStyle_Left:
+        case RWAutoTagButtonImageStyle_Right: {
             
             intrinsicHeight += MAX(maxImageHeight, maxTextHeight);
             if (self.rw_isDynamicFixed) {
@@ -475,7 +448,7 @@
            }
             
             
-            if (self.rw_imageStyle == RWAutoTagImageEdgeInsetStyle_Left) {
+            if (self.rw_imageStyle == RWAutoTagButtonImageStyle_Left) {
                 
                 image_X = [self getInsetLeft] + [self getImageInsetLeft];
                 label_X = image_X +image_Width +rw_itemSpacing +[self getImageInsetRight] +[self getTextInsetLeft];
@@ -514,7 +487,7 @@
                         label_Width = MAX(intrinsicWidth - horizontal - image_horizontal - label_horizontal - image_Width - rw_itemSpacing, 0.0f);
                     }
                 }
-            } else if (self.rw_imageStyle == RWAutoTagImageEdgeInsetStyle_Right) {
+            } else if (self.rw_imageStyle == RWAutoTagButtonImageStyle_Right) {
                 label_X = [self getInsetLeft] + [self getTextInsetLeft];
                 image_X =  intrinsicWidth - image_Width - [self getInsetRight] - [self getImageInsetRight];
                 label_Width = image_X - label_X -  rw_itemSpacing - [self getTextInsetRight] - [self getImageInsetLeft];
