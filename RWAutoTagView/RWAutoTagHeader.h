@@ -16,7 +16,6 @@
 #import "NSBundle+RWAutoTag.h"
 
 #import "RWAutoTagButton.h"
-#import "RWAutoTag.h"
 #import "RWAutoTagView.h"
 
 

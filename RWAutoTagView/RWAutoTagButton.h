@@ -74,13 +74,6 @@ typedef NS_ENUM(NSInteger,RWAutoTagButtonImageStyle) {
 
 @property (nonatomic,assign) CGSize rw_dynamicFixedSize;
 @property (nonatomic,assign) CGSize dynamicFixedSize DEPRECATED_MSG_ATTRIBUTE("🐱'RWAutoTagView','~> 0.1.5'废弃、将会在后续的某一个版本(0.1.7)删除;请使用 rw_dynamicFixedSize");
-
-/* 🐱 配置数据 */
-@property (nonatomic,strong) RWAutoTag *autoTag DEPRECATED_MSG_ATTRIBUTE("🐱'RWAutoTagView','~> 0.1.5'废弃、将会在后续的某一个版本(0.1.7)删除");
-
-
-+ (instancetype)autoTagButtonWithAutoTag:(RWAutoTag *)autoTag DEPRECATED_MSG_ATTRIBUTE("🐱'RWAutoTagView','~> 0.1.5',初始化方法废弃、将会在后续的某一个版本(0.1.7)删除");
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -77,16 +77,6 @@
     }
 }
 
-#pragma mark CustomAutoTag
-
-+ (instancetype)autoTagButtonWithAutoTag:(RWAutoTag *)autoTag {
-    RWAutoTagButton *autoTagButton = [RWAutoTagButton buttonWithType:UIButtonTypeCustom];
-    
-    if (autoTag) {
-        autoTagButton.autoTag = autoTag;
-    }
-    return autoTagButton;
-}
 
 
 
@@ -117,74 +107,13 @@
     return autoTagButtonStyle;
 }
 
-
-- (RWAutoTagButtonImageStyle)getAutoButtonImageStyleInImageStyle:(RWAutoTagImageEdgeInsetStyle)imageStyle {
-    RWAutoTagButtonImageStyle imageEdgeInsetStyle = RWAutoTagButtonImageStyle_Center;
-       switch (imageStyle) {
-           case RWAutoTagImageEdgeInsetStyle_Top:
-               imageEdgeInsetStyle = RWAutoTagButtonImageStyle_Top;
-               break;
-               
-           case RWAutoTagImageEdgeInsetStyle_Left:
-               imageEdgeInsetStyle = RWAutoTagButtonImageStyle_Left;
-               break;
-               
-           case RWAutoTagImageEdgeInsetStyle_Right:
-               imageEdgeInsetStyle = RWAutoTagButtonImageStyle_Right;
-               break;
-               
-           case RWAutoTagImageEdgeInsetStyle_Bottom:
-               imageEdgeInsetStyle = RWAutoTagButtonImageStyle_Bottom;
-               break;
-               
-           default:
-               break;
-       }
-       
-       return imageEdgeInsetStyle;
-}
-
-- (void)setAutoTag:(RWAutoTag *)autoTag {
-    _autoTag = autoTag;
-    if (_autoTag) {
-        self.safeAreaLayoutMaxWidth = autoTag.safeAreaLayoutMaxWidth;
-        self.autoTagButtonStyle = [self getAutoButtonStyleInAutoTagStyle:autoTag.style];
-        self.imageStyle = [self getAutoButtonImageStyleInImageStyle:autoTag.imageEdgeInsetStyle];
-        [self initAutoButtonSubViewsInAutoTag:autoTag];
-    }
-}
-
-- (void)initAutoButtonSubViewsInAutoTag:(RWAutoTag *)autoTag {
-    if (autoTag.attributedText.length) {
-        [self setAttributedTitle:autoTag.attributedText forState:UIControlStateNormal];
-    } else {
-        [self setTitle:autoTag.text forState:UIControlStateNormal];
-        self.titleLabel.font = autoTag.font ?: [UIFont systemFontOfSize: autoTag.fontSize];
-    }
-    
-    self.contentEdgeInsets = autoTag.paddingInsets;
-    self.userInteractionEnabled = autoTag.enable;
-    self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-    if (autoTag.style == RWAutoTagStyle_Image) {
-        [self setImage:[NSBundle rw_autotagImage] forState:UIControlStateNormal];
-    }
-//
-    [self initAutoButtonSubViews];
-    
-   
-}
-
-
 #pragma mark - Set Attribute
 
 - (void)setRw_imageStyle:(RWAutoTagButtonImageStyle)rw_imageStyle {
     if (_rw_imageStyle != rw_imageStyle) {
         _rw_imageStyle = rw_imageStyle;
-        if (self.rw_autoTagButtonStyle == RWAutoTagButtonStyle_Image ||
-            self.rw_autoTagButtonStyle == RWAutoTagButtonStyle_Mingle) {
-            [self initAutoButtonSubViews];
-            [self setNeedsLayout];
-        }
+        [self initAutoButtonSubViews];
+        [self setNeedsLayout];
     }
 }
 
@@ -467,11 +396,13 @@
             intrinsicHeight += maxImageHeight + maxTextHeight +rw_itemSpacing;
             
             if (self.rw_isDynamicFixed) {
-                    intrinsicWidth = self.rw_dynamicFixedSize.width;
+                intrinsicWidth = self.rw_dynamicFixedSize.width;
+                if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
                     intrinsicHeight = self.rw_dynamicFixedSize.height;
-               } else {
-                   intrinsicWidth += MAX(maxImageWidth, maxTextWidth);
-               }
+                }
+           } else {
+               intrinsicWidth += MAX(maxImageWidth, maxTextWidth);
+           }
             
             intrinsicWidth = [self initSafeAreaWidth:intrinsicWidth];
             
@@ -524,7 +455,9 @@
             intrinsicHeight += MAX(maxImageHeight, maxTextHeight);
             if (self.rw_isDynamicFixed) {
                 intrinsicWidth = self.rw_dynamicFixedSize.width;
-                intrinsicHeight = self.rw_dynamicFixedSize.height;
+                if (self.rw_dynamicFixedSize.height != UITableViewAutomaticDimension) {
+                    intrinsicHeight = self.rw_dynamicFixedSize.height;
+                }
             } else {
                 intrinsicWidth += MIN(self.rw_safeAreaLayoutMaxWidth - horizontal, maxImageWidth + maxTextWidth + rw_itemSpacing);
             }

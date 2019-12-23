@@ -121,6 +121,7 @@
                            autoTagButton_Width = autoTagButton.rw_safeAreaLayoutMaxWidth;
                        }
                        isFixed = YES;
+                       
                    }
                    
                    /*  代理返回高度  */
@@ -140,12 +141,14 @@
                        if (_rw_equallyNumber <=0) {
                            _rw_equallyNumber = 1;
                        }
+                       isFixedEqually = YES;
                    }
 //                   NSLog(@"autoTagButton.safeAreaLayoutMaxWidth:%f",autoTagButton.rw_safeAreaLayoutMaxWidth);
                    autoTagButton_Width = (autoTagButton.rw_safeAreaLayoutMaxWidth - (self.rw_itemSpacing *(self.rw_equallyNumber -1)))/self.rw_equallyNumber;
                    autoTagButton.rw_dynamicFixedSize = CGSizeMake(autoTagButton_Width, autoTagButton_Height);
+                   NSAssert(isFixedEqually == YES,@"请实现代理🐱\n🐱🐱- (CGFloat)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonWidthForAtIndex:(NSInteger)index🐱🐱\n🐱或者🐱\n🐱🐱- (CGSize)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonSizeForAtIndex:(NSInteger)index🐱🐱\n🐱");
                }
-               NSAssert(isFixedEqually == YES,@"请实现代理🐱\n🐱🐱- (CGFloat)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonWidthForAtIndex:(NSInteger)index🐱🐱\n🐱或者🐱\n🐱🐱- (CGSize)autoTagView:(RWAutoTagView *)autoTagView autoTagButtonSizeForAtIndex:(NSInteger)index🐱🐱\n🐱");
+               
            }
            [autoTagButton addTarget:self action:@selector(autoTagButtonClick:) forControlEvents:UIControlEventTouchUpInside];
 //           NSLog(@"%@",NSStringFromCGSize([autoTagButton intrinsicContentSize]));

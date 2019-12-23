@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@class RWAutoTagButton,RWAutoTag;
+@class RWAutoTagButton;
 @protocol RWAutoTagViewDataSource,RWAutoTagViewDelegate;
 
 
@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, RWAutoTagViewRangeStyle) {
     
     /* 🐱 动态-固定大小显示 */
     RWAutoTagViewRangeStyle_DynamicFixed,
-    /* 🐱 动态-固定大小平分显示  */
+    /* 🐱 动态-固定大小宽度平分显示  */
     RWAutoTagViewRangeStyle_DynamicFixedEqually,
 };
 
